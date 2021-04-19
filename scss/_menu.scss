@@ -1,0 +1,40 @@
+// Menu Button
+.menu-btn {
+  //  class menu button for homescreen
+  position: absolute; //position to top
+  z-index: 5; // close to front
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut; // will be imported form _config.scss
+
+  .btn-line {
+    width: 28px; // the dimension of each line of dropdown menu button
+    height: 3px;
+    margin: 0 0 5px 0; // top right and blah blah heights respectively
+    background: #fff;
+    @include easeOut;
+  }
+
+  // Change the menu button into X
+
+  &.close {
+    // the javascript changes the menu-btn --> menu-btn close
+    transform: rotate(180deg);
+
+    .btn-line {
+      // Line 1 - Rotate
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px);
+      }
+      // Line 2 - Hide
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      // Line 3 - Rotate
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(11px, -6px);
+      }
+    }
+  }
+}
