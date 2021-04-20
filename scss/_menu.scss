@@ -45,7 +45,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
   visibility: hidden;
 
   &.show {
@@ -62,6 +62,7 @@
     width: 50%;
     height: 100vh;
     overflow: hidden;
+    //z-index: 20;
   }
 
   &-nav {
@@ -97,6 +98,7 @@
       background: url(../img/portrait.jpg);
       border-radius: 50%;
       border: solid 2px $secondary-color;
+      z-index: auto;
     }
   }
 
@@ -107,6 +109,10 @@
     &.show {
       //Slide in from right
       transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
     }
   }
 
@@ -121,6 +127,10 @@
     color: whitesmoke;
     text-decoration: wavy;
     @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
   }
 }
 
