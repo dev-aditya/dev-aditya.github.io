@@ -1,11 +1,11 @@
 $primary-color: #444;
 $secondary-color: rgba(31, 209, 135, 0.582);
 $show-home-image: true;
-$home-image: url(../img/background.jpg);
+$home-image: url(../img/background.png);
 $background-opacity: 0.8;
 
 @mixin easeOut {
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 @mixin background {
@@ -26,5 +26,35 @@ $background-opacity: 0.8;
         background: rgba($primary-color, $background-opacity);
       }
     }
+  }
+}
+
+// Media Query Mixins
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    // CSS we put in will aply if screen is smaller than the given size
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    // CSS we put in will aply if screen is smaller than the given size
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    // CSS we put in will aply if screen is smaller than the given size
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    // CSS we put in will aply if screen is smaller than the given size
+    @content;
   }
 }

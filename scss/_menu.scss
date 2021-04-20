@@ -138,6 +138,6 @@
 
 @for $x from 1 through 4 {
   .nav-item:nth-child(#{$x}) {
-    transition-delay: $x * 0.1s;
+    transition-delay: $x * 0.07s;
   }
 }
