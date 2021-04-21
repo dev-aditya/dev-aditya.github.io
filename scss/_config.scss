@@ -1,4 +1,4 @@
-$primary-color: #444;
+$primary-color: #000;
 $secondary-color: rgba(31, 209, 135, 0.582);
 $show-home-image: true;
 $home-image: url(../img/background.png);
@@ -29,6 +29,15 @@ $background-opacity: 0.8;
   }
 }
 
+//Set Text color
+
+@function set-text-color($color) {
+  @if (lightness($color) > 40) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
 // Media Query Mixins
 
 @mixin mediaSm {
