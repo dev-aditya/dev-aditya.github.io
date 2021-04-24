@@ -6,8 +6,8 @@
 }
 
 body {
-  @include background;
-  background: $primary-color;
+  //@include background;
+  background-color: $primary-color;
   color: set-text-color($primary-color);
   height: 100%; // Sel
   margin: 0;
@@ -61,7 +61,7 @@ main {
 
     a {
       padding: 0.4rem;
-
+      z-index: 2;
       &:hover {
         color: $secondary-color;
         @include easeOut();
@@ -185,6 +185,13 @@ main {
   @extend .btn;
   background: lighten($primary-color, 50);
   color: #333;
+}
+
+#particles-js-canvas-el {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 #main-footer {
