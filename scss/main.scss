@@ -44,6 +44,12 @@ h3 {
   }
 }
 
+h4 {
+  &.info-text {
+    font-size: 2rem;
+  }
+}
+
 a {
   color: #fff;
   text-decoration: wavy;
