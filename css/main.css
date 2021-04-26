@@ -111,9 +111,15 @@ h3 {
   h2.lg-heading,
   h3.lg-heading {
     font-size: 6rem; }
+  h1.lg-heading-home,
+  h2.lg-heading-home,
+  h3.lg-heading-home {
+    font-size: 8rem; }
   h1.sm-heading,
   h2.sm-heading,
   h3.sm-heading {
+    font-family: "Raleway", sans-serif;
+    font-size: 2.3rem;
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
     background: rgba(5, 5, 5, 0.5); }
@@ -170,7 +176,7 @@ main {
     padding: 0.5rem;
     border-bottom: #275ca1 5px solid; }
   .about-info .info-text {
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; }
+    font-family: Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; }
 
 .projects {
   display: grid;
