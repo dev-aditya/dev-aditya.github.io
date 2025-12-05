@@ -249,6 +249,16 @@ main#home .group-link a:hover {
   height: 60px;
 }
 
+.txt-rotate {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: inline-block;
+  white-space: normal;
+}
+.txt-rotate.visible {
+  opacity: 1;
+}
+
 @media screen and (min-width: 1171px) {
   .projects {
     grid-template-columns: repeat(4, 1fr);

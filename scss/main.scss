@@ -240,4 +240,16 @@ main {
   color: #fff; // Light text
   height: 60px;
 }
+// Fade Text Animation
+.txt-rotate {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: inline-block;
+  white-space: normal; // Fixes text cutoff by allowing wrapping
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
 @import "mobile";
