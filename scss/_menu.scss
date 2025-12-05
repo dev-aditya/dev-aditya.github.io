@@ -1,114 +1,30 @@
-// Menu Button
-.menu-btn {
-  //  class menu button for homescreen
-  position: absolute; //position to top
-  z-index: 5; // close to front
-  right: 35px;
-  top: 35px;
-  cursor: pointer;
-  @include easeOut; // will be imported form _config.scss
-
-  .btn-line {
-    width: 28px; // the dimension of each line of dropdown menu button
-    height: 3px;
-    margin: 0 0 5px 0; // top right and blah blah heights respectively
-    background: set-text-color($primary-color);
-    @include easeOut;
-  }
-
-  // Change the menu button into X
-
-  &.close {
-    // the javascript changes the menu-btn --> menu-btn close
-    transform: rotate(180deg);
-
-    .btn-line {
-      // Line 1 - Rotate
-      &:nth-child(1) {
-        transform: rotate(45deg) translate(5px);
-      }
-      // Line 2 - Hide
-      &:nth-child(2) {
-        opacity: 0;
-      }
-      // Line 3 - Rotate
-      &:nth-child(3) {
-        transform: rotate(-45deg) translate(11px, -6px);
-      }
-    }
-  }
-}
-
-// Menu Overlay
-
+// Menu (Static Header)
 .menu {
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
-  visibility: hidden;
+  background: rgba(44, 62, 80, 0.95); // Dark background
+  z-index: 100;
+  border-bottom: 3px solid $secondary-color;
+  padding: 0.5rem 0;
 
-  &.show {
-    visibility: visible;
+  &-branding {
+    display: none; // Hide the portrait branding
   }
 
-  &-branding,
   &-nav {
     display: flex;
-    flex-flow: column wrap;
-    align-items: center;
+    flex-flow: row wrap;
     justify-content: center;
-    float: left;
-    width: 50%;
-    height: 100vh;
-    overflow: hidden;
-    //z-index: 20;
-  }
-
-  &-nav {
+    align-items: center;
     margin: 0;
     padding: 0;
-    background: rgba(44, 62, 80, 0.98); // Hardcoded Deep Navy for high contrast
     list-style: none;
-    transform: translate3d(0, -100%, 0);
-    @include easeOut;
-
-    &.show {
-      // Slide in from top
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  // Branding Side
-  &-branding {
-    background: rgba(34, 49, 63, 0.98); // Slightly darker Navy
-    transform: translate3d(0, 100%, 0);
-    @include easeOut;
-
-    &.show {
-      //Slide from bottom
-      transform: translate3d(0, 0, 0);
-    }
-
-    .portrait {
-      width: 400px;
-      height: 400px;
-      background: url(../img/portrait.png);
-      border-radius: 50%;
-      border: solid 2px $secondary-color;
-      z-index: auto;
-    }
   }
 
   .nav-item {
-    transform: translate3d(600px, 0, 0);
-    @include easeOut;
-
-    &.show {
-      //Slide in from right
-      transform: translate3d(0, 0, 0);
-    }
-
+    margin: 0 0.5rem;
+    
     &.current > a {
       color: $secondary-color;
     }
@@ -116,26 +32,16 @@
 
   .nav-link {
     display: inline-block;
-    position: relative;
-    font-size: 30px;
-    //font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    padding: 1rem 0;
-    font-weight: 300;
-    color: set-text-color($primary-color);
-    text-decoration: wavy;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
     @include easeOut;
 
     &:hover {
       color: $secondary-color;
     }
-  }
-}
-
-//Dealy each nav item silde by 0.1s
-
-@for $x from 1 through 4 {
-  .nav-item:nth-child(#{$x}) {
-    transition-delay: $x * 0.07s;
   }
 }

@@ -1,5 +1,6 @@
 // Select Document bject model
 
+/* 
 const menuBtn = document.querySelector('.menu-btn');
 const menu = document.querySelector('.menu');
 const menuNav = document.querySelector('.menu-nav');
@@ -31,3 +32,4 @@ function toggleMenu() {
         showMenu = false;
     }
 }
+*/
