@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500" height="300">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f0f4f8"/>
+  
+  <!-- Patient Table -->
+  <rect x="100" y="220" width="300" height="20" fill="#90a4ae" rx="5"/>
+  <rect x="150" y="240" width="200" height="40" fill="#cfd8dc"/>
+
+  <!-- CT Gantry Ring -->
+  <circle cx="250" cy="130" r="90" stroke="#2c3e50" stroke-width="15" fill="none"/>
+  <circle cx="250" cy="130" r="85" stroke="#eceff1" stroke-width="2" fill="none"/>
+  
+  <!-- X-Ray Source and Detector -->
+  <rect x="235" y="35" width="30" height="20" fill="#e74c3c" rx="2"/>
+  <rect x="220" y="205" width="60" height="10" fill="#34495e" rx="2"/>
+  
+  <!-- X-Ray Beams (Cone Beam effect) -->
+  <path d="M250 55 L 220 205 L 280 205 Z" fill="url(#beamGradient)" opacity="0.6"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="beamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1c40f;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f1c40f;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Text Label -->
+  <text x="50%" y="285" font-family="'Segoe UI', sans-serif" font-weight="bold" font-size="18" fill="#2c3e50" text-anchor="middle">CBCT Simulation</text>
+</svg>

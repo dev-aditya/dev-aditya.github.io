@@ -68,22 +68,20 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($color: $primary-color, $amount: 4);
+    background: rgba(44, 62, 80, 0.98); // Hardcoded Deep Navy for high contrast
     list-style: none;
     transform: translate3d(0, -100%, 0);
     @include easeOut;
 
     &.show {
-      //Slide from top
-
+      // Slide in from top
       transform: translate3d(0, 0, 0);
     }
   }
 
   // Branding Side
-
   &-branding {
-    background: $primary-color;
+    background: rgba(34, 49, 63, 0.98); // Slightly darker Navy
     transform: translate3d(0, 100%, 0);
     @include easeOut;
 

@@ -1,8 +1,9 @@
-$primary-color: #000;
-$secondary-color: rgb(39, 92, 161);
+$primary-color: #f4f7f6; // Off-white/Light Grey background
+$text-color: #2c3e50; // Deep Navy/Dark Slate for text
+$secondary-color: #2980b9; // Royal Blue for accents
 $show-home-image: true;
 $home-image: url(../img/background.jpg);
-$background-opacity: 0.8;
+$background-opacity: 0.9;
 
 @mixin easeOut {
   transition: all 0.3s ease-out;
@@ -30,12 +31,11 @@ $background-opacity: 0.8;
 }
 
 //Set Text color
-
 @function set-text-color($color) {
-  @if (lightness($color) > 40) {
-    @return #000;
+  @if (lightness($color) > 60) {
+    @return #2c3e50; // Return dark text for light background
   } @else {
-    @return #fff;
+    @return #fff; // Return light text for dark background
   }
 }
 // Media Query Mixins
