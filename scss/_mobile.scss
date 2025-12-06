@@ -31,10 +31,25 @@
     grid-template-areas:
       "bioimage"
       "bio"
-      "job1"
-      "job2"
-      "job3";
+      "tools";
     grid-template-columns: 1fr;
+  }
+
+  .journey-route::before {
+    display: none;
+  }
+
+  .route-stops {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .route-stop {
+    text-align: left;
+  }
+
+  .route-text {
+    margin-top: 0.2rem;
   }
 
   .projects {
