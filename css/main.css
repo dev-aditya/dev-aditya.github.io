@@ -94,6 +94,57 @@ h2.lg-heading-home,
 h3.lg-heading-home {
   font-size: 6rem;
 }
+h1.name-flip-container,
+h2.name-flip-container,
+h3.name-flip-container {
+  perspective: 1000px;
+  display: inline-block;
+}
+h1.name-flip-container .name-flip-inner,
+h2.name-flip-container .name-flip-inner,
+h3.name-flip-container .name-flip-inner {
+  display: grid;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+h1.name-flip-container:hover .name-flip-inner,
+h2.name-flip-container:hover .name-flip-inner,
+h3.name-flip-container:hover .name-flip-inner {
+  transform: rotateX(180deg);
+}
+h1.name-flip-container .name-front, h1.name-flip-container .name-back,
+h2.name-flip-container .name-front,
+h2.name-flip-container .name-back,
+h3.name-flip-container .name-front,
+h3.name-flip-container .name-back {
+  grid-area: 1/1;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+h1.name-flip-container .name-front,
+h2.name-flip-container .name-front,
+h3.name-flip-container .name-front {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+h1.name-flip-container .name-back,
+h2.name-flip-container .name-back,
+h3.name-flip-container .name-back {
+  transform: rotateX(180deg);
+  opacity: 0;
+}
+h1.name-flip-container:hover .name-front,
+h2.name-flip-container:hover .name-front,
+h3.name-flip-container:hover .name-front {
+  opacity: 0;
+}
+h1.name-flip-container:hover .name-back,
+h2.name-flip-container:hover .name-back,
+h3.name-flip-container:hover .name-back {
+  opacity: 1;
+}
 h1.sm-heading,
 h2.sm-heading,
 h3.sm-heading {
