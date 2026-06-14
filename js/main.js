@@ -54,3 +54,62 @@ window.addEventListener('load', () => {
 });
 // Update on window resize to keep pill aligned
 window.addEventListener('resize', updateActivePill);
+
+// Random joke on the quantum intro card.
+// Edit this list to tune the tone; one entry is picked whenever the card is observed.
+const quantumJokes = [
+  {
+    main: '"Eigenvalue found: chronically debugging."',
+    sub: 'The uncertainty is mostly in my inbox.'
+  },
+  {
+    main: '"Wavefunction collapsed into coffee and boundary conditions."',
+    sub: 'Normalization pending after the next espresso.'
+  },
+  {
+    main: '"Measured spin: up. Measured motivation: basis-dependent."',
+    sub: 'Please rotate the lab frame and try again.'
+  },
+  {
+    main: '"This profile is Hermitian: all awkwardness is observable."',
+    sub: 'The eigenstates, unfortunately, are not sorted by confidence.'
+  },
+  {
+    main: '"I tried to diagonalize my life. The off-diagonal terms filed a complaint."',
+    sub: 'Perturbation theory has been notified.'
+  },
+  {
+    main: '"Quantum control update: still optimizing the sleep Hamiltonian."',
+    sub: 'Gradient descent keeps finding local naps.'
+  },
+  {
+    main: '"Bra detected. Ket detected. Inner product: professionally acceptable."',
+    sub: 'Overlap may improve after peer review.'
+  }
+];
+
+const introFlipContainer = document.querySelector('.intro-flip-container');
+const quantumJoke = document.querySelector('#quantum-joke');
+const quantumJokeSub = document.querySelector('#quantum-joke-sub');
+let lastQuantumJokeIndex = -1;
+
+function setRandomQuantumJoke() {
+  if (!quantumJoke || !quantumJokeSub) return;
+
+  let nextIndex = Math.floor(Math.random() * quantumJokes.length);
+  if (quantumJokes.length > 1) {
+    while (nextIndex === lastQuantumJokeIndex) {
+      nextIndex = Math.floor(Math.random() * quantumJokes.length);
+    }
+  }
+
+  lastQuantumJokeIndex = nextIndex;
+  quantumJoke.textContent = quantumJokes[nextIndex].main;
+  quantumJokeSub.textContent = quantumJokes[nextIndex].sub;
+}
+
+if (introFlipContainer) {
+  introFlipContainer.addEventListener('mouseenter', setRandomQuantumJoke);
+  introFlipContainer.addEventListener('focusin', setRandomQuantumJoke);
+  introFlipContainer.addEventListener('touchstart', setRandomQuantumJoke, { passive: true });
+}
