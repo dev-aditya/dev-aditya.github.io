@@ -1,4 +1,6 @@
-// Menu (Floating Liquid Glass Header)
+// Floating liquid-glass navigation.
+// The header itself is full-width and fixed, but pointer-events are disabled so
+// only the pill menu catches clicks.
 header {
   position: fixed;
   top: 20px;
@@ -11,19 +13,24 @@ header {
 
 .menu {
   pointer-events: auto; // re-enable clicks for the menu itself
-  background: rgba(255, 255, 255, 0.4); // More transparent for glassy look
+
+  // Translucent paper-glass surface. Tune alpha and blur together:
+  // higher alpha = more solid, higher blur = softer background behind it.
+  background: rgba($surface-color, 0.84);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid $border-color;
   border-radius: 50px;
   padding: 0.5rem 1rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 $shadow-color;
 
   &-branding {
-    display: none; // Hide the portrait branding
+    // Legacy portrait branding is hidden because this design uses only nav links.
+    display: none;
   }
 
   &-nav {
+    // Relative positioning gives .active-pill-bg a coordinate system.
     position: relative;
     display: flex;
     flex-flow: row wrap;
@@ -36,17 +43,19 @@ header {
 
   .nav-item {
     margin: 0;
+    // Keep text above the sliding active pill.
     position: relative;
     z-index: 2;
   }
 
   .nav-link {
+    // Each link is a rounded target that sits over the animated pill.
     display: inline-block;
     font-size: 1.1rem;
     font-family: 'Montserrat', sans-serif;
     padding: 0.6rem 1.2rem;
     font-weight: 500;
-    color: #333; // dark text for light menu
+    color: $text-color;
     text-decoration: none;
     @include easeOut;
     border-radius: 30px;
@@ -57,10 +66,11 @@ header {
   }
 
   .nav-item.current .nav-link {
-    color: #fff; // white text when pill bg is active
+    color: set-text-color($secondary-color);
   }
 
   .active-pill-bg {
+    // JS in main.js moves/resizes this element under the current nav item.
     position: absolute;
     top: 0;
     left: 0;

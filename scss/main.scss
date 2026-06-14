@@ -1,21 +1,24 @@
 @import "config";
 @import "menu";
 
+// Global sizing reset. Makes padding and borders part of element width/height,
+// which keeps cards and panels predictable across breakpoints.
 * {
   box-sizing: border-box;
 }
 
+// Base document typography and color. The actual palette comes from _config.scss.
 body {
   background-color: $primary-color;
   color: set-text-color($primary-color);
-  height: 100%; // Sel
+  height: 100%;
   margin: 0;
   font-family: 'Lora', 'Merriweather', serif;
   line-height: 1.5;
 }
 
-// Headings
-
+// Heading system. The default heading family is Raleway; special classes below
+// scale the home-page name and subtitle independently.
 h1,
 h2,
 h3,
@@ -35,6 +38,7 @@ h6 {
   }
 
   &.name-flip-container {
+    // 3D name flip: front face is Devanagari, back face is English.
     perspective: 1000px;
     display: inline-block;
 
@@ -48,7 +52,8 @@ h6 {
       transform: rotateX(180deg); // Vertical flip for a cool mechanical effect
     }
 
-    .name-front, .name-back {
+    .name-front,
+    .name-back {
       grid-area: 1 / 1;
       display: block;
       transition: opacity 0.3s ease-in-out;
@@ -76,17 +81,17 @@ h6 {
   }
 
   &.sm-heading {
+    // Rotating subtitle strip under the name.
     font-family: "Raleway", sans-serif;
     font-size: 2.2rem;
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(
-      darken($color: $primary-color, $amount: 10),
-      0.5
-    ); // changes
+    background: rgba(darken($color: $primary-color, $amount: 10),
+        0.5);
   }
 }
 
+// Large greeting text inside the intro card.
 h4 {
   &.info-text {
     font-size: 2rem;
@@ -94,7 +99,7 @@ h4 {
 }
 
 a {
-  color: $text-color; // Dark text for links
+  color: $text-color;
   text-decoration: wavy;
 }
 
@@ -102,45 +107,51 @@ header {
   // Removed fixed styling here since it's now in _menu.scss
 }
 
+// Generic accent helper used directly in HTML.
 .text-secondary {
   color: $secondary-color;
 }
 
 main {
-  // padding: 4rem; // Removed global padding, we will use sections
+  // Main only defines page height. Individual sections own their own spacing.
   min-height: calc(100vh - 60px);
 
+  // First viewport hero area: particle background, name, intro flip card,
+  // and academic journey route.
   &#home {
-    position: relative; // For particle containment
+    position: relative;
     overflow: hidden;
-    padding: 4rem; // Re-added padding here
+    padding: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; // Center content vertically
+    justify-content: center;
     min-height: 100vh;
-    padding-top: 100px; // account for menu
+    padding-top: 100px; // Keeps content below the fixed menu.
 
     .home-content {
+      // Main glass/paper panel that groups the whole hero content.
       position: relative;
-      z-index: 1; // Put content above particles
-      background: rgba(255, 255, 255, 0.39); // Subtle glass over particles
+      z-index: 1; // Put content above particles.
+      background: rgba($surface-color, 0.78); // Subtle paper glass over particles
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       padding: 3rem;
       border-radius: 20px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid $border-color;
+      box-shadow: 0 4px 30px $shadow-color;
       display: flex;
       flex-direction: column;
       gap: 3rem;
     }
 
     .home-top-section {
+      // Two-column hero row: name/socials on the left, flip intro card on the right.
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
       gap: 4rem;
-      
+
       @media screen and (max-width: 1024px) {
         flex-direction: column;
         gap: 2rem;
@@ -148,10 +159,12 @@ main {
     }
 
     .home-titles {
+      // Allows the title stack to share horizontal space with the intro card.
       flex: 1;
     }
 
     .translation-text {
+      // Smaller explanatory text beside multilingual labels.
       font-size: 0.4em;
       color: rgba($text-color, 0.6); // Changed from white to adapt to theme
       font-weight: 600;
@@ -163,16 +176,17 @@ main {
     h1 {
       margin-top: 5vh; // Adjusted from 20vh
     }
-    
+
     .group-link {
+      // Research-group line below the rotating subtitle.
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      
+
       a {
         color: $secondary-color;
         font-weight: bold;
         text-decoration: none;
-        
+
         &:hover {
           color: darken($secondary-color, 10%);
           text-decoration: underline;
@@ -181,12 +195,14 @@ main {
     }
 
     .icons {
+      // Social/contact icon row.
       margin-top: 1rem;
       margin-bottom: 2rem; // Added some spacing
 
       a {
         padding: 0.4rem;
         z-index: 2;
+
         &:hover {
           color: $secondary-color;
           @include easeOut();
@@ -195,14 +211,15 @@ main {
     }
 
     .intro-text {
+      // Shared styling for both faces of the intro flip card.
       flex: 1;
       max-width: 100%; // remove strict max width to allow flex to work
       margin: 0; // removed margin, gap handles it
-      background: rgba(darken($primary-color, 5), 0.8); // semi-transparent
+      background: rgba($surface-strong, 0.9); // semi-transparent
       padding: 1.5rem;
       border-left: 4px solid $secondary-color;
       border-radius: 4px;
-      
+
       h4 {
         display: flex;
         align-items: center;
@@ -211,14 +228,14 @@ main {
       .translation-text {
         font-size: 0.6em; // slightly larger for the h4
       }
-      
+
       p {
         font-size: 1.1rem;
         margin-bottom: 1rem;
       }
     }
 
-    // Flip Container for Intro
+    // Intro flip card. Hovering rotates the full card around the Y axis.
     .intro-flip-container {
       flex: 1;
       perspective: 1000px;
@@ -234,7 +251,9 @@ main {
         transform: rotateY(180deg);
       }
 
-      .intro-front, .intro-back {
+      .intro-front,
+      .intro-back {
+        // Both card faces occupy the same grid cell; backface hides the reverse side.
         grid-area: 1 / 1;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
@@ -242,6 +261,7 @@ main {
       }
 
       .intro-back {
+        // Darker playful "quantum observation" side of the card.
         transform: rotateY(180deg);
         display: flex;
         flex-direction: column;
@@ -250,9 +270,10 @@ main {
         text-align: center;
         background: rgba(15, 15, 15, 0.95);
         border-color: $secondary-color;
-        
+
         .quantum-box {
           .quantum-equation {
+            // Monospace equation-like display for the back face.
             font-family: 'Consolas', 'Courier New', monospace;
             letter-spacing: 2px;
             color: $secondary-color;
@@ -260,19 +281,19 @@ main {
             margin-bottom: 1.2rem;
             text-shadow: 0 0 10px rgba($secondary-color, 0.5);
           }
-          
+
           .quantum-highlight {
             font-size: 1.15rem;
             line-height: 1.6;
             color: #fff;
             margin-bottom: 1rem;
           }
-          
+
           .quantum-sub {
             font-style: italic;
             color: #aaa;
             font-size: 0.95rem;
-            
+
             span {
               font-size: 0.85rem;
               color: #777;
@@ -286,20 +307,22 @@ main {
   }
 }
 
-// New Sections Styling
+// Shared full-width content sections below the hero.
+// These are the large translucent panels for Publications, Blogs, and Contact.
 .content-section {
   position: relative;
   padding: 5rem 4rem;
   margin: 4rem 2rem; // Spacing between sections to show particles
-  background: rgba(255, 255, 255, 0.4); // Matching glassy background
+  background: rgba($surface-color, 0.78); // Matching paper-glass background
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px $shadow-color;
+  border: 1px solid $border-color;
   z-index: 1;
 
   .section-title {
+    // Big uppercase section label.
     font-size: 3rem;
     margin-bottom: 3rem;
     text-transform: uppercase;
@@ -307,33 +330,42 @@ main {
 }
 
 .cards-container {
+  // Stacks publication/blog cards vertically with consistent spacing.
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .card-block {
+  // Reusable large horizontal card used for publications and blog entries.
   display: flex;
   flex-direction: row;
-  background-color: rgba(255, 255, 255, 0.1); // Glassy color
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  background-color: rgba($surface-strong, 0.76); // Glassy paper color
+
+  // Procedural grain overlay. Useful knobs:
+  // - opacity controls visibility
+  // - baseFrequency controls grain size
+  // - numOctaves controls texture complexity
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid $border-color;
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   transition: all 0.3s ease-out;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(31, 47, 51, 0.14);
   transform-style: preserve-3d;
 
   &:hover {
+    // Lift cards slightly and increase contrast on hover.
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba($secondary-color, 0.32);
+    box-shadow: 0 15px 30px rgba(31, 47, 51, 0.2);
   }
 
   .card-img-container {
+    // Fixed media column on desktop; becomes full-width on mobile below.
     width: 300px;
     flex-shrink: 0;
     overflow: hidden;
@@ -341,9 +373,9 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid $border-color;
     transform: translateZ(20px);
-    
+
     img {
       width: 100%;
       height: auto;
@@ -352,31 +384,33 @@ main {
   }
 
   .card-content {
+    // Text column. translateZ works with vanilla-tilt for subtle parallax.
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transform: translateZ(30px);
-    
+
     h3 {
       font-size: 1.8rem;
       color: $secondary-color;
       margin-bottom: 0.5rem;
     }
-    
+
     .pub-meta {
+      // Smaller publication venue/DOI line.
       font-size: 0.95rem;
       color: rgba($text-color, 0.7);
       margin-bottom: 1rem;
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      
+
       .pub-publisher {
         color: $secondary-color;
         font-weight: 600;
       }
     }
-    
+
     p {
       font-size: 1.1rem;
       color: set-text-color($primary-color);
@@ -385,9 +419,11 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+
+  // Cards stack vertically on phones/tablets so text and images do not squeeze.
   .card-block {
     flex-direction: column;
-    
+
     .card-img-container {
       width: 100%;
       height: 200px;
@@ -396,17 +432,19 @@ main {
 }
 
 .journey-route {
+  // Academic timeline wrapper inside the hero panel.
   position: relative;
   margin: 2rem 0 3rem;
   padding: 0 0.5rem;
 
   .route-line {
+    // Animated horizontal path connecting the timeline stops.
     position: absolute;
     top: 1.1rem;
     left: 4%;
     right: 4%;
     height: 3px;
-    background: lighten($secondary-color, 20);
+    background: lighten($secondary-color, 24);
     opacity: 0.8;
     transform-origin: left;
     transform: scaleX(0);
@@ -415,11 +453,19 @@ main {
 }
 
 @keyframes unfurl-path {
-  0% { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
+
+  // Draws the route line from left to right.
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 .route-stops {
+  // Evenly spaces the timeline stops across the route line.
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -427,45 +473,74 @@ main {
 }
 
 .route-stop {
+  // Individual timeline stop. Animation delays are staggered to match the line.
   text-align: center;
   flex: 1;
   position: relative;
   opacity: 0;
   animation: fade-in-stop 0.6s forwards;
-  
-  &:nth-child(1) { animation-delay: 0s; }
-  &:nth-child(2) { animation-delay: 1.66s; } // 5s * 0.33
-  &:nth-child(3) { animation-delay: 3.33s; } // 5s * 0.66
-  &:nth-child(4) { animation-delay: 4.8s; }  // Just before end
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 1.66s;
+  }
+
+  // 5s * 0.33
+  &:nth-child(3) {
+    animation-delay: 3.33s;
+  }
+
+  // 5s * 0.66
+  &:nth-child(4) {
+    animation-delay: 4.8s;
+  }
+
+  // Just before end
 }
 
 @keyframes fade-in-stop {
-  0% { opacity: 0; transform: translateY(15px); }
-  100% { opacity: 1; transform: translateY(0); }
+
+  // Brings each stop in after the route line reaches it.
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dot {
+  // Circular marker for each timeline stop.
   width: 18px;
   height: 18px;
   border: 3px solid $secondary-color;
-  background: $primary-color;
+  background: $surface-color;
   border-radius: 50%;
   display: inline-block;
   box-shadow: 0 0 0 4px rgba($secondary-color, 0.15);
 }
 
 .route-label {
+  // Primary institution/lab name.
   margin: 0.5rem 0 0.2rem;
   font-weight: 700;
 }
 
 .route-sub {
+  // Degree/role/date line below each timeline label.
   margin: 0;
   color: darken($text-color, 10);
   font-size: 0.95rem;
 }
 
 .route-text {
+  // Text wrapper for each timeline stop, including inline links.
   margin-top: 0.4rem;
 
   a {
@@ -482,6 +557,7 @@ main {
 }
 
 .route-desc {
+  // One-sentence description below each stop.
   margin: 0.2rem 0 0;
   font-size: 0.98rem;
   color: darken($text-color, 5);
@@ -531,12 +607,14 @@ main {
     font-size: large;
   }
 }
+
 // Projects
 
 .projects {
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(3, 1fr);
+
   img {
     width: 100%;
     border: 3px #fff solid;
@@ -585,12 +663,12 @@ main {
 }
 
 .contact-card {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid $border-color;
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba($surface-strong, 0.76);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px $shadow-color;
   border-radius: 16px;
   transform-style: preserve-3d;
   position: relative;
@@ -598,10 +676,10 @@ main {
 
   &:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba($secondary-color, 0.32);
+    box-shadow: 0 15px 30px rgba(31, 47, 51, 0.18);
   }
-  
+
   .contact-card-inner {
     transform: translateZ(40px);
     display: flex;
@@ -659,6 +737,7 @@ main {
   background: darken($primary-color, 50);
   color: #fff;
 }
+
 .btn-light {
   @extend .btn;
   background: lighten($primary-color, 50);
@@ -678,10 +757,11 @@ main {
 #main-footer {
   text-align: center; // Standard center alignment
   padding: 1rem;
-  background: darken($color: $primary-color, $amount: 80); // Dark footer
+  background: darken($color: $text-color, $amount: 5); // Dark footer
   color: #fff; // Light text
   height: 60px;
 }
+
 // Fade Text Animation
 .txt-rotate {
   opacity: 0;

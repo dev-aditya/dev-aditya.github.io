@@ -1,14 +1,24 @@
-$primary-color: #f4f7f6; // Off-white/Light Grey background
-$text-color: #2c3e50; // Deep Navy/Dark Slate for text
-$secondary-color: #2980b9; // Royal Blue for accents
+// Core light-mode palette. Change these first if you want to tune the whole site.
+// The goal is a warm, low-glare background with high-contrast readable text.
+$primary-color: #eef1f3; // Page background and image overlay.
+$text-color: #1f2a33; // Main readable text color.
+$secondary-color: #3f6f8f; // Accent color for links, active nav, borders, and highlights.
+$surface-color: #f8fafb; // Main translucent panel/card surface.
+$surface-strong: #dfe8ee; // Slightly darker panel color for nested cards.
+$border-color: rgba(45, 63, 76, 0.2); // Soft outline for glass panels.
+$shadow-color: rgba(24, 38, 48, 0.14); // Shared low-contrast shadow color.
+
+// Background image controls. The overlay keeps text readable over the image.
 $show-home-image: true;
 $home-image: url(../img/background.jpg);
-$background-opacity: 0.9;
+$background-opacity: 0.92; // Higher = flatter/softer background, lower = image shows more.
 
+// Reusable transition used for hover states across links, cards, and buttons.
 @mixin easeOut {
   transition: all 0.3s ease-out;
 }
 
+// Applies the fixed full-page background image and a readable color overlay.
 @mixin background {
   @if $show-home-image {
     &#bg-img {
@@ -30,40 +40,40 @@ $background-opacity: 0.9;
   }
 }
 
-//Set Text color
+// Picks readable text automatically when a component background is light or dark.
 @function set-text-color($color) {
   @if (lightness($color) > 60) {
-    @return #2c3e50; // Return dark text for light background
+    @return $text-color; // Return dark text for light background
   } @else {
     @return #fff; // Return light text for dark background
   }
 }
-// Media Query Mixins
 
+// Breakpoint helpers. Keep responsive rules readable by using these mixins.
 @mixin mediaSm {
   @media screen and (max-width: 500px) {
-    // CSS we put in will aply if screen is smaller than the given size
+    // CSS here applies to phones.
     @content;
   }
 }
 
 @mixin mediaMd {
   @media screen and (max-width: 768px) {
-    // CSS we put in will aply if screen is smaller than the given size
+    // CSS here applies to tablets and narrower screens.
     @content;
   }
 }
 
 @mixin mediaLg {
   @media screen and (min-width: 769px) and (max-width: 1170px) {
-    // CSS we put in will aply if screen is smaller than the given size
+    // CSS here applies to laptop-sized layouts.
     @content;
   }
 }
 
 @mixin mediaXl {
   @media screen and (min-width: 1171px) {
-    // CSS we put in will aply if screen is smaller than the given size
+    // CSS here applies to wide desktop layouts.
     @content;
   }
 }
