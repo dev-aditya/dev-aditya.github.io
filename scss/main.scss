@@ -205,17 +205,20 @@ main {
 .card-block {
   display: flex;
   flex-direction: row;
-  background: darken($primary-color, 5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
-  @include easeOut;
+  transition: all 0.3s ease-out;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
 
   &:hover {
     transform: translateY(-5px);
-    border-color: $secondary-color;
+    border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -223,11 +226,12 @@ main {
     width: 300px;
     flex-shrink: 0;
     overflow: hidden;
-    background: #fff;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(20px);
     
     img {
       width: 100%;
@@ -237,10 +241,11 @@ main {
   }
 
   .card-content {
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: translateZ(30px);
     
     h3 {
       font-size: 1.8rem;
@@ -451,15 +456,28 @@ main {
 }
 
 .contact-card {
-  border: 2px solid $secondary-color;
-  padding: 1.25rem 1.5rem;
-  background: rgba(darken($primary-color, 5), 0.9);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  @include easeOut;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: all 0.3s ease-out;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-card-inner {
+    transform: translateZ(40px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   h3 {
