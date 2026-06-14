@@ -1,18 +1,30 @@
-// Menu (Static Header)
-.menu {
+// Menu (Floating Liquid Glass Header)
+header {
   position: fixed;
-  top: 0;
+  top: 20px;
   width: 100%;
-  background: rgba(44, 62, 80, 0.95); // Dark background
   z-index: 100;
-  border-bottom: 3px solid $secondary-color;
-  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; // let clicks pass through header area
+}
+
+.menu {
+  pointer-events: auto; // re-enable clicks for the menu itself
+  background: rgba(255, 255, 255, 0.4); // More transparent for glassy look
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 
   &-branding {
     display: none; // Hide the portrait branding
   }
 
   &-nav {
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -23,25 +35,39 @@
   }
 
   .nav-item {
-    margin: 0 0.5rem;
-    
-    &.current > a {
-      color: $secondary-color;
-    }
+    margin: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .nav-link {
     display: inline-block;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    font-weight: 400;
-    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    color: #333; // dark text for light menu
     text-decoration: none;
     @include easeOut;
+    border-radius: 30px;
 
     &:hover {
       color: $secondary-color;
     }
+  }
+
+  .nav-item.current .nav-link {
+    color: #fff; // white text when pill bg is active
+  }
+
+  .active-pill-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: $secondary-color;
+    border-radius: 30px;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   }
 }

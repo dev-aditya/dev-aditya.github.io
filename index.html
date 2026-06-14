@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="icon" type="image/png" href="favicon.png"/>
     <link
-      href="https://fonts.googleapis.com/css?family=Raleway:200,100,400"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Raleway:wght@200;100;400;700&display=swap"
       rel="stylesheet"
-      type="text/css"
     />
     <script
       src="https://kit.fontawesome.com/5c83acfc16.js"
@@ -17,55 +16,199 @@
     ></script>
     <title>आदित्य देव</title>
   </head>
-  <body>
+  <body id="bg-img">
     <div id="particles-js-canvas-el"></div>
+
     <header>
       <nav class="menu">
         <ul class="menu-nav">
           <li class="nav-item current">
-            <a href="index.html" class="nav-link"> Home </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="about.html" class="nav-link"> About Me </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="work.html" class="nav-link"> My Work</a>
+            <a href="#home" class="nav-link"> Home </a>
           </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link"> Contact Me</a>
+            <a href="#publications" class="nav-link"> Publications </a>
           </li>
+          <li class="nav-item">
+            <a href="#blogs" class="nav-link"> Blogs </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link"> Contact </a>
+          </li>
+          <div class="active-pill-bg"></div>
         </ul>
       </nav>
     </header>
 
     <main id="home">
-      <h1 class="lg-heading-home">
-        आदित्य <span class="text-secondary"> देव</span>
-      </h1>
-      <h2 class="sm-heading">
-        <span
-          class="txt-rotate"
-          data-period="1500"
-          data-rotate='["PhD Student at Weizmann Institute of Science", "Quantum Optimal Control Researcher", "Exploring Physics & Computation", "Welcome to my Webpage!" ]'
-        ></span>
-      </h2>
-      <h3 class="group-link">
-        Member of <a href="http://spindynamics.org" target="_blank">Spin Dynamics Group</a>
-      </h3>
-      <div class="icons">
-        <a href="https://www.github.com/dev-aditya">
-          <i class="fab fa-github fa-2x"> </i>
-        </a>
-        <a href="https://orcid.org/0000-0002-0806-6480" target="_blank" rel="noopener">
-          <i class="fab fa-orcid fa-2x"></i>
-        </a>
-        <a href="mailto:adityadev@tuta.io"
-          ><i class="fas fa-envelope fa-2x"></i
-        ></a>
+      <div class="home-content">
+        <div class="home-top-section">
+          <div class="home-titles">
+            <h1 class="lg-heading-home">
+              आदित्य <span class="text-secondary"> देव</span> <span class="translation-text">(Aditya Dev)</span>
+            </h1>
+            <h2 class="sm-heading">
+              <span
+                class="txt-rotate"
+                data-period="2000"
+                data-rotate='["PhD Student at Weizmann Institute of Science", "Quantum Optimal Control", "Exploring Physics & Computation", "Welcome to my Webpage!" ]'
+              ></span>
+            </h2>
+            <h3 class="group-link">
+              Member of <a href="http://spindynamics.org" target="_blank">Spin Dynamics Group</a>
+            </h3>
+            <div class="icons">
+              <a href="https://www.github.com/dev-aditya">
+                <i class="fab fa-github fa-2x"> </i>
+              </a>
+              <a href="https://orcid.org/0000-0002-0806-6480" target="_blank" rel="noopener">
+                <i class="fab fa-orcid fa-2x"></i>
+              </a>
+              <a href="mailto:adityadev@tuta.io"
+                ><i class="fas fa-envelope fa-2x"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="intro-text">
+            <h4 class="info-text">🙏 नमस्कार <span class="translation-text">(Hello/Greetings)</span></h4>
+            <p class="info-text">
+              I'm Aditya Dev. I am currently a PhD student at the Weizmann Institute of Science, Israel 🇮🇱,
+              working with <a href="http://spindynamics.org" target="_blank" class="text-secondary">Prof. Ilya Kuprov</a> on
+              Quantum Optimal Control of Spin Systems.
+            </p>
+            <p class="info-text">
+              My research interests lie at the intersection of Physics and Computation 💻, specifically in optimizing
+              control protocols for quantum systems.
+              I enjoy exploring philosophical and scientific self-reflection 🧘‍♂️.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-route" aria-label="Academic journey">
+          <div class="route-stops">
+            <div class="route-stop">
+              <span class="dot" aria-hidden="true"></span>
+              <div class="route-text">
+                <p class="route-label">IISER Mohali</p>
+                <p class="route-sub">BS-MS Dual Degree, India (2019 - 2024)</p>
+                <p class="route-desc">
+                  Majored in Physics with focus on particle physics, computational methods, and open quantum systems.
+                </p>
+              </div>
+            </div>
+            <div class="route-stop">
+              <span class="dot" aria-hidden="true"></span>
+              <div class="route-text">
+                <p class="route-label">MPI-PKS Dresden</p>
+                <p class="route-sub">Master's Thesis, Germany (2023 - 2024)</p>
+                <p class="route-desc">
+                  Explored the emergence of time in quantum mechanics, worked on
+                  <a href="https://github.com/dev-aditya/PRJ502-MS-Thesis" target="_blank" rel="noopener">Relational Time
+                    from Entangled Eigenstates</a>.
+                </p>
+              </div>
+            </div>
+            <div class="route-stop">
+              <span class="dot" aria-hidden="true"></span>
+              <div class="route-text">
+                <p class="route-label">IIT Roorkee</p>
+                <p class="route-sub">Junior Research Fellow, India (2024 - 2025)</p>
+                <p class="route-desc">
+                  Worked on <a href="https://arxiv.org/abs/2012.13559v2" target="_blank" rel="noopener">Quantum-enhanced
+                    photocell based on
+                    GaN quantum dots</a>
+                </p>
+              </div>
+            </div>
+            <div class="route-stop">
+              <span class="dot" aria-hidden="true"></span>
+              <div class="route-text">
+                <p class="route-label">Weizmann Institute</p>
+                <p class="route-sub">PhD, Israel (2025 - Present)</p>
+                <p class="route-desc">
+                  Researching quantum optimal control of spin systems (GRAPE) with
+                  <a href="http://spindynamics.org" target="_blank" class="text-secondary">Prof. Ilya Kuprov</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+
+    <section id="publications" class="content-section">
+      <h2 class="section-title">Publications</h2>
+      <div class="cards-container">
+        <!-- Placeholder Publication Block -->
+        <a href="https://journals.aps.org/pra/abstract/10.1103/jywm-2nrs" target="_blank" rel="noopener" class="card-block">
+          <div class="card-img-container">
+            <img src="img/publications/GaN_Qdots.png" alt="Publication Image placeholder" />
+          </div>
+          <div class="card-content">
+            <h3>Quantum-enhanced photocell based on GaN quantum dots</h3>
+            <div class="pub-meta">
+              <span class="pub-publisher">Physical Review A</span> | 
+              <span class="pub-doi">DOI: 10.1103/jywm-2nrs</span>
+            </div>
+            <p>In this work, we propose an efficient quantum-enhanced solid-state photocell based on GaN quantum dots (QDs). We exploit the strong built-in electric field in GaN QDs and the excitonic dipole-dipole interaction between adjacent QDs to break detailed balance, thereby enhancing device performance. This mechanism is significantly stronger than Fano interference, and our results demonstrate that such a photocell exhibits increased photovoltage and photocurrent compared to its noninteracting counterparts. Numerical calculations further show that the efficiency remains positive and saturates at a finite value for multi-QD systems. The proposed quantum photocell represents a promising step towards harnessing quantum effects in practical energy-harvesting devices.</p>
+          </div>
+        </a>
+        <!-- Placeholder Publication Block -->
+        <a href=" 	https://doi.org/10.48550/arXiv.2606.02169" target="_blank" rel="noopener" class="card-block">
+          <div class="card-img-container">
+            <img src="img/publications/SpinHamiltonianAsLinearMaps.png" alt="Publication Image placeholder" />
+          </div>
+          <div class="card-content">
+            <h3>Spin Hamiltonian as Matrix-Free Linear Map</h3>
+            <div class="pub-meta">
+              <span class="pub-publisher">arXiv Preprint</span> | 
+              <span class="pub-doi">DOI: 10.48550/arXiv.2606.02169</span>
+            </div>
+            <p>We present an algorithm that computes the action of a generic spin Hamiltonian on a state vector on the fly, entirely avoiding explicit matrix assembly. This is achieved through mixed-radix indexing of the full tensor-product basis, which translates local spin operations into simple integer offsets. The result is an explicit framework for evaluating single- and two-site terms across arbitrary spin lattices, including mixed-spin systems. Our construction bridges the basis-indexing logic familiar from exact diagonalization with the matrix-free state-update philosophy of address-based frameworks. By writing the indexing logic in closed form, a single uniform loop applies to every site regardless of its local Hilbert-space dimension. The method is parallelizable and memory-conserving, and can be extended to restricted basis or truncated bosonic levels. </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="blogs" class="content-section">
+      <h2 class="section-title">Blogs</h2>
+      <div class="cards-container">
+        <!-- Placeholder Blog Block -->
+        <a href="#" class="card-block">
+          <div class="card-img-container">
+            <img src="img/projects/ising.svg" alt="Blog Image placeholder" />
+          </div>
+          <div class="card-content">
+            <h3>IN PROGRESS</h3>
+            <p>Whatever it's goona be, it'll be cool!</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="content-section">
+      <h2 class="section-title">Contact <span class="text-secondary">Me</span></h2>
+      <h3 class="sm-heading-alt">For contacting, collaboration or questions please feel free to email.</h3>
+      
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3><i class="fas fa-envelope-open-text"></i> Email</h3>
+          <p><a href="mailto:adityadev@tuta.io">adityadev@tuta.io</a></p>
+          <p class="contact-meta">I typically reply within a couple of days.</p>
+        </div>
+        <div class="contact-card">
+          <h3><i class="fab fa-github"></i> GitHub</h3>
+          <p><a href="https://github.com/dev-aditya" target="_blank" rel="noopener">github.com/dev-aditya</a></p>
+          <p class="contact-meta">Explore my projects and latest updates.</p>
+        </div>
+        <div class="contact-card">
+          <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+          <p>Weizmann Institute of Science, Rehovot, Israel</p>
+          <p class="contact-meta">Spin Dynamics Group</p>
+        </div>
+      </div>
+    </section>
+
     <footer id="main-footer">Copyright &copy; 2025 Aditya Dev</footer>
 
     <script src="js/main.js"></script>

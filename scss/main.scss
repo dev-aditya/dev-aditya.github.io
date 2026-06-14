@@ -6,7 +6,6 @@
 }
 
 body {
-  //@include background;
   background-color: $primary-color;
   color: set-text-color($primary-color);
   height: 100%; // Sel
@@ -56,9 +55,7 @@ a {
 }
 
 header {
-  position: fixed;
-  z-index: 2;
-  width: 100%;
+  // Removed fixed styling here since it's now in _menu.scss
 }
 
 .text-secondary {
@@ -66,26 +63,61 @@ header {
 }
 
 main {
-  padding: 4rem;
-  //height: 100%;
+  // padding: 4rem; // Removed global padding, we will use sections
   min-height: calc(100vh - 60px);
-  .icons {
-    margin-top: 1rem;
-
-    a {
-      padding: 0.4rem;
-      z-index: 2;
-      &:hover {
-        color: $secondary-color;
-        @include easeOut();
-      }
-    }
-  }
 
   &#home {
+    position: relative; // For particle containment
     overflow: hidden;
+    padding: 4rem; // Re-added padding here
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center content vertically
+    min-height: 100vh;
+    padding-top: 100px; // account for menu
+
+    .home-content {
+      position: relative;
+      z-index: 1; // Put content above particles
+      background: rgba(255, 255, 255, 0.4); // Subtle glass over particles
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .home-top-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4rem;
+      
+      @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+    .home-titles {
+      flex: 1;
+    }
+
+    .translation-text {
+      font-size: 0.4em;
+      color: rgba($text-color, 0.6); // Changed from white to adapt to theme
+      font-weight: 600;
+      margin-left: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      vertical-align: middle;
+    }
+
     h1 {
-      margin-top: 20vh;
+      margin-top: 5vh; // Adjusted from 20vh
     }
     
     .group-link {
@@ -102,6 +134,147 @@ main {
           text-decoration: underline;
         }
       }
+    }
+
+    .icons {
+      margin-top: 1rem;
+      margin-bottom: 2rem; // Added some spacing
+
+      a {
+        padding: 0.4rem;
+        z-index: 2;
+        &:hover {
+          color: $secondary-color;
+          @include easeOut();
+        }
+      }
+    }
+
+    .intro-text {
+      flex: 1;
+      max-width: 100%; // remove strict max width to allow flex to work
+      margin: 0; // removed margin, gap handles it
+      background: rgba(darken($primary-color, 5), 0.8); // semi-transparent
+      padding: 1.5rem;
+      border-left: 4px solid $secondary-color;
+      border-radius: 4px;
+      
+      h4 {
+        display: flex;
+        align-items: center;
+      }
+
+      .translation-text {
+        font-size: 0.6em; // slightly larger for the h4
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// New Sections Styling
+.content-section {
+  position: relative;
+  padding: 5rem 4rem;
+  margin: 4rem 2rem; // Spacing between sections to show particles
+  background: rgba(255, 255, 255, 0.4); // Matching glassy background
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 1;
+
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card-block {
+  display: flex;
+  flex-direction: row;
+  background: darken($primary-color, 5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  @include easeOut;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $secondary-color;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-img-container {
+    width: 300px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h3 {
+      font-size: 1.8rem;
+      color: $secondary-color;
+      margin-bottom: 0.5rem;
+    }
+    
+    .pub-meta {
+      font-size: 0.95rem;
+      color: rgba($text-color, 0.7);
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      
+      .pub-publisher {
+        color: $secondary-color;
+        font-weight: 600;
+      }
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: set-text-color($primary-color);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-block {
+    flex-direction: column;
+    
+    .card-img-container {
+      width: 100%;
+      height: 200px;
     }
   }
 }
@@ -346,10 +519,13 @@ main {
 }
 
 #particles-js-canvas-el {
-  z-index: -1;
-  height: 100%;
-  width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none; // so it doesn't block clicks on links
 }
 
 #main-footer {
