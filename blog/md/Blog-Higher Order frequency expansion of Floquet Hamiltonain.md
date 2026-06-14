@@ -4,7 +4,7 @@ aliases: []
 ---
 Created: *2026-06-09, 23:04*
 
-# 💡 Blog: Higher Order Frequency Expansion of the Floquet Hamiltonian
+# 💡 Higher Order Frequency Expansion of the Floquet Hamiltonian
 
 You are a PhD or a master's student who has recently joined a quantum tech research lab and has come across "Average Hamiltonian Theory" for periodic time-dependent Hamiltonians, or saw the fancy term "Floquet engineering" for the first time. You get curious and put the query into Google (or nowadays ChatGPT) and see the bloodbath of jargon-heavy physics literature thrown at your screen... the retinas of your eyes are scrolling over the screen and see Floquet-Theory, Floquet-Magnus Expansion, Van Vleck high-frequency expansion all seemingly talking about the same stuff but in their own jargon as if it makes them look cool, lol. If this has not happened to you, congratulations you are smart, but unfortunately I wasn't before I somehow wrapped my head around some papers from a totally unrelated field of condensed matter physics. Here I'm writing this post so if a fellow guy like me comes here seeking some hope, you find it.
 
