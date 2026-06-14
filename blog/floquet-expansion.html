@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higher Order Frequency Expansion of the Floquet Hamiltonian</title>
-    
-    <!-- Google Fonts: Computer Modern Serif is not reliably on Google Fonts, but we use Lora or standard fallbacks. We'll use Latin Modern Math/Roman if installed, falling back to Georgia/Serif. JetBrains Mono for code. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>💡 Higher Order Frequency Expansion of the Floquet Hamiltonian</title>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/main.css">
     
     <!-- KaTeX CSS for Math -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <link rel="stylesheet" href="static/vendor/katex/katex.min.css">
     
     <!-- KaTeX JS (Auto-render) -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -31,9 +26,8 @@
 <body>
     <div class="container">
         <header class="site-header">
-            <a href="../index.html" class="site-title">Aditya Dev's Portfolio</a>
+            <a href="../index.html" class="site-title">Home</a>
             <nav class="site-nav">
-                <a href="../index.html">Home</a>
                 <a href="../index.html#blogs">Blogs</a>
             </nav>
         </header>
@@ -42,21 +36,35 @@
             
 <article class="post">
     <header class="post-header">
-        <h1 class="post-title">Higher Order Frequency Expansion of the Floquet Hamiltonian</h1>
+        <h1 class="post-title">💡 Higher Order Frequency Expansion of the Floquet Hamiltonian</h1>
         <div class="post-meta">
             <span class="post-date">2026-06-09</span>
             
         </div>
     </header>
+
+    
+    <details class="table-of-contents" open>
+        <summary>Contents</summary>
+        <ol>
+<li><a href="#the-floquet-theorem-the-common-starting-point">The Floquet Theorem: The Common Starting Point</a></li>
+<li><a href="#1-the-spin-resonance-side-average-hamiltonian-theory-floquet-magnus">1. The Spin Resonance Side: Average Hamiltonian Theory &amp; Floquet-Magnus</a></li>
+<li><a href="#2-the-condensed-matter-side-van-vleck-kick-operators">2. The Condensed Matter Side: Van Vleck &amp; Kick Operators</a></li>
+<li><a href="#3-the-third-player-brillouin-wigner-bw-theory">3. The Third Player: Brillouin-Wigner (BW) Theory</a></li>
+<li><a href="#the-ultimate-cheat-sheet-feature-comparison">The Ultimate Cheat Sheet: Feature Comparison</a></li>
+<li><a href="#at-what-order-do-they-actually-diverge">At What Order Do They Actually Diverge?</a></li>
+<li><a href="#summary-the-family-tree-of-floquet-methods">Summary: The &quot;Family Tree&quot; of Floquet Methods</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+    </details>
+    
     
     <div class="post-content">
-        <p>Created: <em>2026-06-09, 23:04</em></p>
-<h1>💡 Blog: Higher Order Frequency Expansion of the Floquet Hamiltonian</h1>
-<p>You are a PhD or a master's student who has recently joined a quantum tech research lab and has come across "Average Hamiltonian Theory" for periodic time-dependent Hamiltonians, or saw the fancy term "Floquet engineering" for the first time. You get curious and put the query into Google (or nowadays ChatGPT) and see the bloodbath of jargon-heavy physics literature thrown at your screen... the retinas of your eyes are scrolling over the screen and see Floquet-Theory, Floquet-Magnus Expansion, Van Vleck high-frequency expansion all seemingly talking about the same stuff but in their own jargon as if it makes them look cool, lol. If this has not happened to you, congratulations you are smart, but unfortunately I wasn't before I somehow wrapped my head around some papers from a totally unrelated field of condensed matter physics. Here I'm writing this post so if a fellow guy like me comes here seeking some hope, you find it.</p>
+        <p>You are a PhD or a master's student who has recently joined a quantum tech research lab and has come across "Average Hamiltonian Theory" for periodic time-dependent Hamiltonians, or saw the fancy term "Floquet engineering" for the first time. You get curious and put the query into Google (or nowadays ChatGPT) and see the bloodbath of jargon-heavy physics literature thrown at your screen... the retinas of your eyes are scrolling over the screen and see Floquet-Theory, Floquet-Magnus Expansion, Van Vleck high-frequency expansion all seemingly talking about the same stuff but in their own jargon as if it makes them look cool, lol. If this has not happened to you, congratulations you are smart, but unfortunately I wasn't before I somehow wrapped my head around some papers from a totally unrelated field of condensed matter physics. Here I'm writing this post so if a fellow guy like me comes here seeking some hope, you find it.</p>
 <p>Well, all that emotional backstory said, let's get to the point (<strong>I'm not an expert (and neither is anyone else who claims to be one), but I'll do an honest attempt to decipher the average Hamiltonian theory in a way that I understood while learning it myself.</strong>) It might be full of wrong intuition, but who cares as long as it helps you calculate right results, or simply makes a non-journal-type review of the different terms and how they are related. This post has been highly inspired by Marin Bukov's work [1], the definitive comparison by Mikami et al. [2], and the foundational derivations by Eckardt [3] and Sato &amp; Ikeda [4].</p>
 <p>Before starting some math and to put things in perspective, the two seemingly different terms: <strong>Average Hamiltonian Theory</strong> (a term popular in the spin resonance / NMR community) is loosely synonymous with the <strong>Van Vleck High-Frequency Expansion</strong> techniques used in condensed matter physics. Also, maybe make it a rule of thumb that any two seemingly different descriptions of something that start from the same point are more or less similarity (or unitary) transformations of each other. It's just a basis change, and so are the above two seemingly unrelated terms. </p>
 <p>In an intuitive sense, these techniques provide us with an <em>effective Hamiltonian</em> where the high-frequency oscillations average out, leaving only a description of the slow dynamics. Speaking of starting from the same point, let's actually begin with where they start: the Floquet theorem.</p>
-<h3>The Floquet Theorem: The Common Starting Point</h3>
+<h3 id="the-floquet-theorem-the-common-starting-point">The Floquet Theorem: The Common Starting Point</h3>
 <p>All methods begin from Floquet theorem. Floquet theory asserts that if your differential equation looks like the Schrödinger equation and the Hamiltonian is periodic with some period <span class="arithmatex">\(T\)</span>, then every solution can be decomposed into a phase times a function which is also periodic with the same period:</p>
 <div class="arithmatex">\[ |\psi(t)\rangle = e^{-i\epsilon t}|\phi(t)\rangle \quad \text{where} \quad |\phi(t)\rangle = |\phi(t+T)\rangle \]</div>
 <p>The term <span class="arithmatex">\(\epsilon\)</span> is called the <strong>quasi-energy</strong> and <span class="arithmatex">\(|\phi(t)\rangle\)</span> is the <strong>Floquet state</strong>.</p>
@@ -74,22 +82,22 @@
 \]</div>
 <p>The diagonal blocks <span class="arithmatex">\(\hat{H}_0 + m\hbar\omega\)</span> can be thought of as <strong>photon-number sectors</strong> (representing the atom dressed by <span class="arithmatex">\(m\)</span> photons from the laser). The off-diagonal terms <span class="arithmatex">\(\hat{H}_n\)</span> are the interactions that couple sectors differing by <span class="arithmatex">\(n\)</span> photons.</p>
 <p><strong>The big secret of all these Floquet methods:</strong> This mapping is <em>exact</em>. All the different expansion methods below are just different mathematical strategies for trying to block-diagonalize this exact, infinite matrix!</p>
-<h3>1. The Spin Resonance Side: Average Hamiltonian Theory &amp; Floquet-Magnus</h3>
+<h3 id="1-the-spin-resonance-side-average-hamiltonian-theory-floquet-magnus">1. The Spin Resonance Side: Average Hamiltonian Theory &amp; Floquet-Magnus</h3>
 <p>Let's first start with the spin resonance side of the community. Average Hamiltonian Theory (AHT) is usually studied in the context of describing the time dynamics of a spin system driven by periodic Radio/Microwave pulses (like in NMR). If we stick to the rule that we only observe the system <strong>stroboscopically</strong> (a fancy term to say that we observe the system at exact integer multiples of the period only), then one asks an obvious question: <em>Can I find a time-independent Hamiltonian that gives equivalent time evolution as the time-dependent Hamiltonian?</em> </p>
 <p>The answer is yes. But the stroboscopic nature of the mathematics introduces something called a <strong>"Floquet gauge" dependence</strong> in the effective Hamiltonian. This is another fancy term to say that the effective Hamiltonian depends heavily on the <em>initial phase</em> (or start time <span class="arithmatex">\(t_0\)</span>) of your pulse.</p>
 <p>This approach uses the <strong>Floquet-Magnus Expansion (FME)</strong>. Up to first order in the inverse frequency (<span class="arithmatex">\(1/\omega\)</span>), the effective Hamiltonian looks like:</p>
 <div class="arithmatex">\[ F_{\text{FM}}^{(1)} = \sum_{m\neq 0} \frac{[H_{-m}, H_m]}{2m\omega} + \sum_{m\neq 0}\frac{[H_m, H_0]}{m\omega}e^{-im\omega t_0} \]</div>
 <p>See those <span class="arithmatex">\(e^{-im\omega t_0}\)</span> terms? That's the gauge dependence. It means your effective Hamiltonian changes depending on when exactly you turned on your stopwatch.</p>
-<h3>2. The Condensed Matter Side: Van Vleck &amp; Kick Operators</h3>
+<h3 id="2-the-condensed-matter-side-van-vleck-kick-operators">2. The Condensed Matter Side: Van Vleck &amp; Kick Operators</h3>
 <p>The condensed matter theorists want to study the action of the effective Hamiltonian at <em>arbitrary</em> times, not necessarily stroboscopic like the chemists. (Chemists are lazy but practical; physicists are wannabe hardworking so they try to work out all these calculations that they could have avoided like chemists, but we need to look cool at parties :)). </p>
 <p>Hence, they do a <strong>non-stroboscopic</strong> analysis. Instead of baking the initial time <span class="arithmatex">\(t_0\)</span> into the Hamiltonian, they separate the evolution into a slow, gauge-independent effective Hamiltonian, sandwiched between fast, periodic <strong>"kick operators"</strong> <span class="arithmatex">\(e^{-iK(t)}\)</span> that handle the rapid micromotion jiggling [1].</p>
 <p>This leads to the <strong>Van Vleck High-Frequency Expansion</strong>. The beauty of this method is that the effective Hamiltonian is perfectly independent of <span class="arithmatex">\(t_0\)</span>. Up to first order, it simply drops the annoying <span class="arithmatex">\(t_0\)</span>-dependent terms from the Magnus expansion:</p>
 <div class="arithmatex">\[ F_{\text{vV}}^{(1)} = \sum_{m\neq 0}\frac{[H_{-m}, H_m]}{2m\omega} \]</div>
 <p>This is the famous equation you'll see in papers by Eckardt [3] and Sato &amp; Ikeda [4]. It is mathematically derived by performing a unitary block-diagonalization (a Schrieffer-Wolff transformation) in the extended Floquet space.</p>
-<h3>3. The Third Player: Brillouin-Wigner (BW) Theory</h3>
+<h3 id="3-the-third-player-brillouin-wigner-bw-theory">3. The Third Player: Brillouin-Wigner (BW) Theory</h3>
 <p>Just when you thought two methods were enough, the <strong>Brillouin-Wigner (BW) Expansion</strong> enters the chat [2]. While Van Vleck achieves its results by <em>rotating</em> the infinite matrix to make it block-diagonal, BW does it by brute-force <em>projecting</em> the matrix down to the zero-photon sector.</p>
 <p>The catch? Because projection is not a unitary operation, the BW effective Hamiltonian is generally <strong>non-Hermitian</strong> if you truncate the series, and it features energy-dependent denominators. However, physicists sometimes prefer it for calculating higher-order corrections because the algebra is recursively much simpler than computing endless nested commutators in Magnus or Van Vleck.</p>
-<h3>The Ultimate Cheat Sheet: Feature Comparison</h3>
+<h3 id="the-ultimate-cheat-sheet-feature-comparison">The Ultimate Cheat Sheet: Feature Comparison</h3>
 <p>If you need a quick reference for why you might pick one method over another, here is how their features stack up:</p>
 <table>
 <thead>
@@ -133,7 +141,7 @@
 </tr>
 </tbody>
 </table>
-<h3>At What Order Do They Actually Diverge?</h3>
+<h3 id="at-what-order-do-they-actually-diverge">At What Order Do They Actually Diverge?</h3>
 <p>Since they are all doing the exact same physical job, they agree at the lowest order. But as you ask for more precision (higher orders of <span class="arithmatex">\(1/\omega\)</span>), their different math philosophies cause their formulas to explicitly diverge:</p>
 <table>
 <thead>
@@ -161,7 +169,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Summary: The "Family Tree" of Floquet Methods</h3>
+<h3 id="summary-the-family-tree-of-floquet-methods">Summary: The "Family Tree" of Floquet Methods</h3>
 <p>If you ever get lost in the literature, here is the cheat sheet map of how all these methods are related [2]:</p>
 <pre><code class="language-mermaid">graph TD
     A[&quot;Schrödinger Equation (Periodic Drive)&quot;] --&gt; B[&quot;Floquet Theorem&lt;br&gt;(Mapping to Extended Sambe Space)&quot;]
@@ -184,12 +192,12 @@
 <li><strong>The "Projection" (Brillouin-Wigner):</strong> Brillouin-Wigner goes rogue. Instead of rotating the matrix, it uses brute-force to <em>project</em> the infinite matrix down to just the slow-dynamics sector. Because projection is a non-unitary operation, the resulting effective Hamiltonian isn't guaranteed to be Hermitian if you truncate the math early. You can mathematically transform a BW result into an FME result, but you have to use a messy non-unitary "wave operator" to do it.</li>
 </ol>
 <p>At the end of the day, if you don't truncate the infinite series, they all yield the exact same quasi-energy spectrum. It's just a matter of picking the right mathematical tool for your specific experimental reality!</p>
-<h3>References</h3>
+<h3 id="references">References</h3>
 <p>[1] Bukov, M., D'Alessio, L., &amp; Polkovnikov, A. (2015). <em>Universal high-frequency behavior of periodically driven systems</em>. Advances in Physics.
 [2] Mikami, T., Kitamura, S., et al. (2016). <em>Brillouin-Wigner perturbation theory for Floquet systems</em>. Physical Review B.
 [3] Eckardt, A., &amp; Anisimovas, E. (2015). <em>High-frequency approximation for periodically driven systems</em>. New Journal of Physics.
 [4] Sato, M., &amp; Ikeda, T. N. (2025). <em>Floquet Theory and Applications in Open Quantum and Classical Systems</em>.</p>
-<h1>Future work</h1>
+<h1 id="future-work">Future work</h1>
 <p>Make a blog describing the Floquet theory derivation.</p>
     </div>
 </article>

@@ -1,14 +1,88 @@
 /* Typography and Reset */
+@font-face {
+  font-family: 'CMS';
+  src: url('../fonts/cmun-serif/cmunrm.eot');
+  src:
+    url('../fonts/cmun-serif/cmunrm.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif/cmunrm.woff') format('woff'),
+    url('../fonts/cmun-serif/cmunrm.ttf') format('truetype'),
+    url('../fonts/cmun-serif/cmunrm.svg#cmunrm') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CMS';
+  src: url('../fonts/cmun-serif/cmunbx.eot');
+  src:
+    url('../fonts/cmun-serif/cmunbx.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif/cmunbx.woff') format('woff'),
+    url('../fonts/cmun-serif/cmunbx.ttf') format('truetype'),
+    url('../fonts/cmun-serif/cmunbx.svg#cmunbx') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CMS';
+  src: url('../fonts/cmun-serif/cmunti.eot');
+  src:
+    url('../fonts/cmun-serif/cmunti.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif/cmunti.woff') format('woff'),
+    url('../fonts/cmun-serif/cmunti.ttf') format('truetype'),
+    url('../fonts/cmun-serif/cmunti.svg#cmunti') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CMS';
+  src: url('../fonts/cmun-serif/cmunbi.eot');
+  src:
+    url('../fonts/cmun-serif/cmunbi.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif/cmunbi.woff') format('woff'),
+    url('../fonts/cmun-serif/cmunbi.ttf') format('truetype'),
+    url('../fonts/cmun-serif/cmunbi.svg#cmunbi') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CMSS';
+  src: url('../fonts/cmun-serif-slanted/cmunsl.eot');
+  src:
+    url('../fonts/cmun-serif-slanted/cmunsl.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif-slanted/cmunsl.woff') format('woff'),
+    url('../fonts/cmun-serif-slanted/cmunsl.ttf') format('truetype'),
+    url('../fonts/cmun-serif-slanted/cmunsl.svg#cmunsl') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CMSS';
+  src: url('../fonts/cmun-serif-slanted/cmunbl.eot');
+  src:
+    url('../fonts/cmun-serif-slanted/cmunbl.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cmun-serif-slanted/cmunbl.woff') format('woff'),
+    url('../fonts/cmun-serif-slanted/cmunbl.ttf') format('truetype'),
+    url('../fonts/cmun-serif-slanted/cmunbl.svg#cmunbl') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
-  --bg-color: #fdfdfd;
-  --body-text: #222222;
+  --bg-color: #ffffff;
+  --body-text: #111111;
   --heading-text: #111111;
-  --accent-color: #0066cc;
-  --accent-hover: #004499;
-  --secondary-text: #666666;
-  --border-color: #e0e0e0;
+  --accent-color: #77c;
+  --accent-hover: #55a;
+  --secondary-text: #555555;
+  --border-color: #cccccc;
   --code-bg: #f5f5f5;
   --highlight-color: #fff3cd;
+  --article-width: 780px;
+  --container-width: 1170px;
 }
 
 body {
@@ -16,48 +90,85 @@ body {
   padding: 0;
   background-color: var(--bg-color);
   color: var(--body-text);
-  font-family: 'CMU Serif', 'Latin Modern Roman', Georgia, serif;
+  font-family: 'CMS', 'Droid Sans', Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1.7;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   body {
-    font-size: 16px;
+    text-align: justify;
   }
 }
 
 /* Layout */
 .container {
-  max-width: 720px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 0 15px 4rem;
+}
+
+main {
+  width: 100%;
+  max-width: var(--article-width);
+  padding-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 2rem 1.5rem;
+    padding: 0 15px 2.5rem;
+  }
+
+  main {
+    padding-top: 1.5rem;
   }
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading-text);
-  line-height: 1.3;
-  margin-top: 2em;
-  margin-bottom: 1em;
   font-weight: bold;
+  text-align: left;
 }
 
-h1 { font-size: 2.2rem; margin-top: 0; }
-h2 { font-size: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
-h3 { font-size: 1.4rem; }
+h1 {
+  font-family: 'CMS', 'Droid Serif', Georgia, Times, serif;
+  font-size: 300%;
+  line-height: 1.3;
+  margin: 0 0 0.45em;
+}
+
+h2 {
+  font-size: 150%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 115%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+h4, h5, h6 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.post-title {
+  font-size: 260%;
+  line-height: 1.3;
+}
 
 /* Paragraphs */
 p {
   margin-top: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 /* Links */
@@ -68,12 +179,12 @@ a {
 
 a:hover {
   color: var(--accent-hover);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Code */
 code, pre {
-  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-family: ui-monospace, 'Fira Code', Consolas, monospace;
   font-size: 0.85em;
   background-color: var(--code-bg);
   border-radius: 4px;
@@ -84,9 +195,13 @@ code {
 }
 
 pre {
+  margin-left: 18px;
   padding: 1rem;
   overflow-x: auto;
-  border: 1px solid var(--border-color);
+  border: none;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 pre code {
@@ -97,11 +212,14 @@ pre code {
 
 /* Blockquotes */
 blockquote {
-  margin: 0 0 1.5em 0;
-  padding: 0.5em 1.5em;
-  border-left: 4px solid var(--border-color);
-  color: var(--secondary-text);
-  background: #f9f9f9;
+  margin: 0 0 1.5em 18px;
+  padding: 6px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--body-text);
+  background: rgb(245, 245, 245);
+  font-family: 'CMSS', 'CMS', Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
 /* Images & Figures */
@@ -119,15 +237,15 @@ figure img {
 
 figcaption {
   margin-top: 0.5em;
-  font-size: 0.9em;
-  color: var(--secondary-text);
+  font-size: 80%;
+  color: #777777;
 }
 
 /* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
 }
 
 th, td {
@@ -141,14 +259,69 @@ th {
   color: var(--heading-text);
 }
 
+/* Table of Contents */
+.table-of-contents {
+  margin: 0 0 2rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  font-family: 'CMS', 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 85%;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.table-of-contents summary {
+  cursor: pointer;
+  color: var(--heading-text);
+  font-weight: bold;
+}
+
+.table-of-contents ol {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.table-of-contents li + li {
+  margin-top: 0.45rem;
+}
+
+.table-of-contents a {
+  color: var(--secondary-text);
+}
+
+.table-of-contents a:hover {
+  color: var(--accent-hover);
+}
+
+@media (min-width: 1200px) {
+  .table-of-contents {
+    position: fixed;
+    top: 8.25rem;
+    left: calc((100vw - var(--container-width)) / 2 + var(--article-width) + 45px);
+    width: 260px;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 1px solid var(--border-color);
+  }
+}
+
 /* Tags & Meta */
 .post-meta {
   color: var(--secondary-text);
-  font-size: 0.9em;
+  font-family: 'CMSS', 'CMS', Helvetica, Arial, sans-serif;
+  font-size: 120%;
+  font-style: italic;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;
 }
 
 .tags {
@@ -167,28 +340,34 @@ th {
 
 /* Header & Nav */
 .site-header {
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box;
+  max-width: var(--article-width);
+  min-height: 50px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'CMS', 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 50px;
 }
 
 .site-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--heading-text);
+  font-size: 20px;
+  font-weight: normal;
+  color: #333333;
   text-decoration: none;
 }
 
 .site-nav a {
   margin-left: 1rem;
-  color: var(--secondary-text);
+  color: #333333;
 }
 
 .site-nav a:hover {
-  color: var(--accent-hover);
+  color: #333333;
 }
 
 /* Animations */

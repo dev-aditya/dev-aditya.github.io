@@ -17,9 +17,16 @@
             {% endif %}
         </div>
     </header>
+
+    {% if toc %}
+    <details class="table-of-contents" open>
+        <summary>Contents</summary>
+        {{ toc|safe }}
+    </details>
+    {% endif %}
     
     <div class="post-content">
-        {{ content }}
+        {{ content|safe }}
     </div>
 </article>
 {% endblock %}
