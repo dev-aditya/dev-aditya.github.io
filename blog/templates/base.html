@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    
+    <!-- Google Fonts: Computer Modern Serif is not reliably on Google Fonts, but we use Lora or standard fallbacks. We'll use Latin Modern Math/Roman if installed, falling back to Georgia/Serif. JetBrains Mono for code. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/main.css">
+    
+    <!-- KaTeX CSS for Math -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    
+    <!-- KaTeX JS (Auto-render) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <a href="../index.html" class="site-title">Aditya Dev's Portfolio</a>
+            <nav class="site-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#blogs">Blogs</a>
+            </nav>
+        </header>
+        
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    
+    <!-- Entrance Animation -->
+    <script src="static/js/entrance.js"></script>
+</body>
+</html>
