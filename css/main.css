@@ -215,6 +215,59 @@ main#home .intro-text p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
+main#home .intro-flip-container {
+  flex: 1;
+  perspective: 1000px;
+  margin: 0;
+}
+main#home .intro-flip-container .intro-flip-inner {
+  display: grid;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+main#home .intro-flip-container:hover .intro-flip-inner {
+  transform: rotateY(180deg);
+}
+main#home .intro-flip-container .intro-front, main#home .intro-flip-container .intro-back {
+  grid-area: 1/1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+main#home .intro-flip-container .intro-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(15, 15, 15, 0.95);
+  border-color: #2980b9;
+}
+main#home .intro-flip-container .intro-back .quantum-box .quantum-equation {
+  font-family: "Consolas", "Courier New", monospace;
+  letter-spacing: 2px;
+  color: #2980b9;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px rgba(41, 128, 185, 0.5);
+}
+main#home .intro-flip-container .intro-back .quantum-box .quantum-highlight {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+main#home .intro-flip-container .intro-back .quantum-box .quantum-sub {
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.95rem;
+}
+main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
+  font-size: 0.85rem;
+  color: #777;
+  display: block;
+  margin-top: 0.5rem;
+}
 
 .content-section {
   position: relative;
