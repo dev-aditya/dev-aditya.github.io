@@ -22,6 +22,7 @@
     .lg-heading {
       line-height: 1;
       margin-bottom: 1rem;
+      font-size: 4.5rem;
     }
   }
 
@@ -61,6 +62,20 @@
 @include mediaSm {
   main#home h1 {
     margin-top: 10vh;
+  }
+  .lg-heading {
+    font-size: 3rem;
+  }
+  .sm-heading {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+  }
+  .card-content h3 {
+    font-size: 1.4rem;
   }
   .projects {
     grid-template-columns: 1fr;

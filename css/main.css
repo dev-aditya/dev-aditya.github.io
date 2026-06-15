@@ -55,9 +55,7 @@ header {
 }
 .menu .active-pill-bg {
   position: absolute;
-  top: 0;
   left: 0;
-  height: 100%;
   width: 0;
   background: #3f6f8f;
   border-radius: 30px;
@@ -765,6 +763,7 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
   main .lg-heading {
     line-height: 1;
     margin-bottom: 1rem;
+    font-size: 4.5rem;
   }
   .about-info {
     grid-template-areas: "bioimage" "bio" "tools";
@@ -790,6 +789,20 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
 @media screen and (max-width: 500px) {
   main#home h1 {
     margin-top: 10vh;
+  }
+  .lg-heading {
+    font-size: 3rem;
+  }
+  .sm-heading {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+  }
+  .card-content h3 {
+    font-size: 1.4rem;
   }
   .projects {
     grid-template-columns: 1fr;
@@ -876,6 +889,76 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
   text-align: center;
   text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
   max-width: 80%;
+}
+#theme-transition-overlay .superposition-equation {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 6rem;
+  font-weight: 300;
+  font-family: monospace;
+  white-space: nowrap;
+}
+#theme-transition-overlay .superposition-equation .superposition-atom {
+  margin-bottom: 0;
+}
+#theme-transition-overlay .superposition-equation .norm-factor {
+  font-size: 3.5rem;
+  margin-right: 5px;
+  font-family: "Lora", serif;
+  font-style: italic;
+}
+#theme-transition-overlay .superposition-equation .bracket {
+  transform: scaleY(1.5);
+}
+#theme-transition-overlay .superposition-equation .sign {
+  margin: 0 10px;
+}
+@media (max-width: 1024px) {
+  #theme-transition-overlay .superposition-equation {
+    font-size: 4rem;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  #theme-transition-overlay .superposition-equation .superposition-atom {
+    width: 100px;
+    height: 100px;
+  }
+  #theme-transition-overlay .superposition-equation .norm-factor {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #theme-transition-overlay .superposition-equation {
+    font-size: 2.5rem;
+    gap: 5px;
+    margin-bottom: 1rem;
+  }
+  #theme-transition-overlay .superposition-equation .superposition-atom {
+    width: 50px;
+    height: 50px;
+  }
+  #theme-transition-overlay .superposition-equation .superposition-atom .nucleus {
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+  #theme-transition-overlay .superposition-equation .superposition-atom .orbit::before {
+    width: 4px;
+    height: 4px;
+    top: -2px;
+    margin-left: -2px;
+  }
+  #theme-transition-overlay .superposition-equation .norm-factor {
+    font-size: 1.5rem;
+    margin-right: 2px;
+  }
+  #theme-transition-overlay .superposition-equation .sign {
+    margin: 0 5px;
+  }
 }
 #theme-transition-overlay.light-transition {
   background-color: #f8fafb;

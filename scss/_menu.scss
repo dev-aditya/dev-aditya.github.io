@@ -72,9 +72,7 @@ header {
   .active-pill-bg {
     // JS in main.js moves/resizes this element under the current nav item.
     position: absolute;
-    top: 0;
     left: 0;
-    height: 100%;
     width: 0;
     background: $secondary-color;
     border-radius: 30px;

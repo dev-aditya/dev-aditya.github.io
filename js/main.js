@@ -35,12 +35,14 @@ function updateActivePill() {
     if (link.getAttribute('href') === `#${current}`) {
       item.classList.add('current');
       
-      // Move the active pill background
+      // Move the active pill background dynamically
       const linkRect = item.getBoundingClientRect();
       const navRect = item.parentElement.getBoundingClientRect();
       
       activePillBg.style.width = `${linkRect.width}px`;
+      activePillBg.style.height = `${linkRect.height}px`;
       activePillBg.style.left = `${linkRect.left - navRect.left}px`;
+      activePillBg.style.top = `${linkRect.top - navRect.top}px`;
     }
   });
 }

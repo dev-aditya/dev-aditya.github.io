@@ -8,7 +8,7 @@ let isDarkState = false;
 
 function buildSuperposition(sign) {
   const atomHTML = `
-      <div class="atom" style="margin-bottom: 0;">
+      <div class="atom superposition-atom">
         <div class="nucleus"></div>
         <div class="orbit orbit-1"></div>
         <div class="orbit orbit-2"></div>
@@ -17,17 +17,17 @@ function buildSuperposition(sign) {
   `;
   
   return `
-    <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-bottom: 2rem; font-size: 6rem; font-weight: 300; font-family: monospace;">
-      <div style="font-size: 3.5rem; margin-right: 5px; font-family: 'Lora', serif; font-style: italic;">1/&radic;2</div>
-      <div style="transform: scaleY(1.5);">(</div>
-      <div style="transform: scaleY(1.5);">|</div>
+    <div class="superposition-equation">
+      <div class="norm-factor">1/&radic;2</div>
+      <div class="bracket">(</div>
+      <div class="bracket">|</div>
       ${atomHTML}
-      <div style="transform: scaleY(1.5);">&rang;</div>
-      <div style="margin: 0 10px;">${sign}</div>
-      <div style="transform: scaleY(1.5);">|</div>
+      <div class="bracket">&rang;</div>
+      <div class="sign">${sign}</div>
+      <div class="bracket">|</div>
       ${atomHTML}
-      <div style="transform: scaleY(1.5);">&rang;</div>
-      <div style="transform: scaleY(1.5);">)</div>
+      <div class="bracket">&rang;</div>
+      <div class="bracket">)</div>
     </div>
   `;
 }
