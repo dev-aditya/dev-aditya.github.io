@@ -85,6 +85,34 @@ const quantumJokes = [
   {
     main: '"Bra detected. Ket detected. Inner product: professionally acceptable."',
     sub: 'Overlap may improve after peer review.'
+  },
+  {
+    main: '"Schrödinger\'s code: it works and doesn\'t work until you compile it."',
+    sub: 'Don\'t look at the terminal, you\'ll collapse the build.'
+  },
+  {
+    main: '"Tunneling through deadlines since 2018."',
+    sub: 'Classically forbidden, but probabilistically inevitable.'
+  },
+  {
+    main: '"Currently entangled with a messy codebase."',
+    sub: 'Spooky action at a distance is just bad global variables.'
+  },
+  {
+    main: '"My research is a superposition of brilliant and confused."',
+    sub: 'Observation usually collapses it into "confused".'
+  },
+  {
+    main: '"Experiencing a non-adiabatic transition into the weekend."',
+    sub: 'Please allow ample time for thermalization.'
+  },
+  {
+    main: '"Fermionic lifestyle: I refuse to occupy the same state as anyone else."',
+    sub: 'Pauli exclusion principle in action at academic conferences.'
+  },
+  {
+    main: '"This portfolio strongly violates Bell\'s inequality."',
+    sub: 'Because it\'s demonstrably non-local and genuinely weird.'
   }
 ];
 
