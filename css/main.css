@@ -332,7 +332,7 @@ main#home .intro-flip-container .intro-back {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: rgba(15, 15, 15, 0.95);
+  background: rgba(238, 241, 243, 0.95);
   border-color: #3f6f8f;
 }
 main#home .intro-flip-container .intro-back .quantum-box .quantum-equation {
@@ -346,12 +346,12 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-equation {
 main#home .intro-flip-container .intro-back .quantum-box .quantum-highlight {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: #fff;
+  color: #1f2a33;
   margin-bottom: 1rem;
 }
 main#home .intro-flip-container .intro-back .quantum-box .quantum-sub {
   font-style: italic;
-  color: #aaa;
+  color: rgb(69.5609756098, 94.243902439, 114.4390243902);
   font-size: 0.95rem;
 }
 main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {

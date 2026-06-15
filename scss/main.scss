@@ -270,7 +270,7 @@ main {
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: rgba(15, 15, 15, 0.95);
+        background: rgba($primary-color, 0.95);
         border-color: $secondary-color;
 
         .quantum-box {
@@ -287,13 +287,13 @@ main {
           .quantum-highlight {
             font-size: 1.15rem;
             line-height: 1.6;
-            color: #fff;
+            color: $text-color;
             margin-bottom: 1rem;
           }
 
           .quantum-sub {
             font-style: italic;
-            color: #aaa;
+            color: color.adjust($text-color, $lightness: 20%, $space: hsl);
             font-size: 0.95rem;
 
             span {
