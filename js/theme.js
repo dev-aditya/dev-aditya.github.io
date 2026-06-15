@@ -80,19 +80,12 @@ themeToggle.addEventListener('click', (e) => {
       themeStylesheet.setAttribute('href', 'css/main.css');
       themeToggle.textContent = 'Dark State';
       
-      // Stop matrix, start particles
-      if (window.stopMatrix) {
-        window.stopMatrix();
-      }
+      // Stop particles if they were running (though we are deprecating them)
+      particlesEl.style.opacity = '0';
       
-      particlesEl.style.opacity = '1';
-      // Re-init particles.js
-      if (window.particlesJS) {
-        window.particlesJS.load(
-          "particles-js-canvas-el",
-          "../particle/particles.json",
-          function () {}
-        );
+      // Start matrix for Light State
+      if (window.startMatrix) {
+        window.startMatrix();
       }
     }
     
@@ -104,3 +97,8 @@ themeToggle.addEventListener('click', (e) => {
     
   }, 500); // Wait 0.5s for the CSS fade-in
 });
+
+// Start matrix by default on page load for light mode
+if (window.startMatrix) {
+  window.startMatrix();
+}

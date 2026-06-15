@@ -21,11 +21,13 @@ for (let x = 0; x < columns; x++) {
 let matrixInterval = null;
 
 function drawMatrix() {
-  // Semi-transparent black background to create the trail effect
-  ctx.fillStyle = 'rgba(11, 15, 25, 0.05)';
+  const isDark = typeof isDarkState !== 'undefined' ? isDarkState : true;
+
+  // Semi-transparent background to create the trail effect
+  ctx.fillStyle = isDark ? 'rgba(11, 15, 25, 0.05)' : 'rgba(238, 241, 243, 0.1)';
   ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
 
-  ctx.fillStyle = '#0F0'; // Green text
+  ctx.fillStyle = isDark ? '#0F0' : '#00adb5'; // Green text in dark mode, Secondary color in light mode
   ctx.font = fontSize + 'px monospace';
 
   // Loop over drops
