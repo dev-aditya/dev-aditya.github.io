@@ -191,7 +191,7 @@ h6.sm-heading {
   font-size: 2.2rem;
   margin-bottom: 2rem;
   padding: 0.2rem 1rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: hsla(222.8571428571, 38.8888888889%, -2.9411764706%, 0.5);
 }
 
 h4.info-text {
@@ -708,7 +708,7 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
 }
 
 .btn-dark {
-  background: black;
+  background: hsl(222.8571428571, 38.8888888889%, -42.9411764706%);
   color: #fff;
 }
 

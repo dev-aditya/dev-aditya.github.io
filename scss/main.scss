@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @import "config";
 @import "menu";
 
@@ -86,7 +88,7 @@ h6 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(darken($color: $primary-color, $amount: 10),
+    background: rgba(color.adjust($color: $primary-color, $lightness: -10%, $space: hsl),
         0.5);
   }
 }
@@ -188,7 +190,7 @@ main {
         text-decoration: none;
 
         &:hover {
-          color: darken($secondary-color, 10%);
+          color: color.adjust($secondary-color, $lightness: -10%, $space: hsl);
           text-decoration: underline;
         }
       }
@@ -444,7 +446,7 @@ main {
     left: 4%;
     right: 4%;
     height: 3px;
-    background: lighten($secondary-color, 24);
+    background: color.adjust($secondary-color, $lightness: 24%, $space: hsl);
     opacity: 0.8;
     transform-origin: left;
     transform: scaleX(0);
@@ -535,7 +537,7 @@ main {
 .route-sub {
   // Degree/role/date line below each timeline label.
   margin: 0;
-  color: darken($text-color, 10);
+  color: color.adjust($text-color, $lightness: -10%, $space: hsl);
   font-size: 0.95rem;
 }
 
@@ -560,7 +562,7 @@ main {
   // One-sentence description below each stop.
   margin: 0.2rem 0 0;
   font-size: 0.98rem;
-  color: darken($text-color, 5);
+  color: color.adjust($text-color, $lightness: -5%, $space: hsl);
 }
 
 .about-info {
@@ -583,7 +585,7 @@ main {
   .bio {
     grid-area: bio;
     font-size: 2rem;
-    background: darken($color: $primary-color, $amount: 5); // Match job block style
+    background: color.adjust($color: $primary-color, $lightness: -5%, $space: hsl); // Match job block style
     padding: 1.5rem; // Add padding for better spacing
     border-bottom: $secondary-color 5px solid; // Match job border
     border-radius: 5px; // Slight rounding for modern look
@@ -594,7 +596,7 @@ main {
 
   .tools {
     grid-area: tools;
-    background: darken($color: $primary-color, $amount: 5); // Slightly darker grey
+    background: color.adjust($color: $primary-color, $lightness: -5%, $space: hsl); // Slightly darker grey
     padding: 1rem;
     border-bottom: $secondary-color 5px solid;
     border-radius: 5px;
@@ -714,7 +716,7 @@ main {
   }
 
   .contact-meta {
-    color: darken($text-color, 10);
+    color: color.adjust($text-color, $lightness: -10%, $space: hsl);
     font-size: 0.95rem;
   }
 }
@@ -734,13 +736,13 @@ main {
 
 .btn-dark {
   @extend .btn;
-  background: darken($primary-color, 50);
+  background: color.adjust($primary-color, $lightness: -50%, $space: hsl);
   color: #fff;
 }
 
 .btn-light {
   @extend .btn;
-  background: lighten($primary-color, 50);
+  background: color.adjust($primary-color, $lightness: 50%, $space: hsl);
   color: #333;
 }
 
@@ -757,7 +759,7 @@ main {
 #main-footer {
   text-align: center; // Standard center alignment
   padding: 1rem;
-  background: darken($color: $text-color, $amount: 5); // Dark footer
+  background: color.adjust($color: $text-color, $lightness: -5%, $space: hsl); // Dark footer
   color: #fff; // Light text
   height: 60px;
 }
