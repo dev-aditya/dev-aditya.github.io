@@ -77,6 +77,20 @@
   .card-content h3 {
     font-size: 1.4rem;
   }
+  .content-section {
+    margin: 2rem 1rem;
+    padding: 3rem 1.5rem;
+  }
+  
+  .home-content {
+    margin: 0 1rem;
+    padding: 3rem 1.5rem;
+  }
+  
+  main#home {
+    padding-top: 6rem;
+  }
+  
   .projects {
     grid-template-columns: 1fr;
   }

@@ -123,12 +123,8 @@ main {
   &#home {
     position: relative;
     overflow: hidden;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    padding-top: 100px; // Keeps content below the fixed menu.
+    padding-top: 8.5rem; // Accommodates the fixed menu + 4rem margin-top equivalent
+    padding-bottom: 0; // Let the next section's margin-top dictate the exact gap
 
     .home-content {
       // Main glass/paper panel that groups the whole hero content.
@@ -137,7 +133,8 @@ main {
       background: rgba($surface-color, 0.78); // Subtle paper glass over particles
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      padding: 3rem;
+      padding: 5rem 4rem; // Match .content-section padding
+      margin: 0 2rem; // Match .content-section horizontal margin
       border-radius: 20px;
       border: 1px solid $border-color;
       box-shadow: 0 4px 30px $shadow-color;
