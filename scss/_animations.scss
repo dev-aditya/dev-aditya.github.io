@@ -14,6 +14,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
+  color: #00ff41;
 
   &.active {
     opacity: 1;
@@ -75,6 +76,32 @@
     text-align: center;
     text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
     max-width: 80%;
+  }
+
+  &.light-transition {
+    background-color: #f8fafb; // Light surface color
+    color: #3f6f8f;
+    
+    .atom {
+      .nucleus {
+        background: #3f6f8f; // Secondary blue
+        box-shadow: 0 0 15px #3f6f8f;
+      }
+      
+      .orbit {
+        border-color: rgba(63, 111, 143, 0.4);
+        
+        &::before {
+          background: #3f6f8f;
+          box-shadow: 0 0 10px #3f6f8f;
+        }
+      }
+    }
+    
+    .transition-text {
+      color: #3f6f8f;
+      text-shadow: 0 0 10px rgba(63, 111, 143, 0.3);
+    }
   }
 }
 

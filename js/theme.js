@@ -6,15 +6,57 @@ const particlesEl = document.getElementById('particles-js-canvas-el');
 // The site starts in Light State by default
 let isDarkState = false;
 
+function buildSuperposition(sign) {
+  const atomHTML = `
+      <div class="atom" style="margin-bottom: 0;">
+        <div class="nucleus"></div>
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+      </div>
+  `;
+  
+  return `
+    <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-bottom: 2rem; font-size: 6rem; font-weight: 300; font-family: monospace;">
+      <div style="font-size: 3.5rem; margin-right: 5px; font-family: 'Lora', serif; font-style: italic;">1/&radic;2</div>
+      <div style="transform: scaleY(1.5);">(</div>
+      <div style="transform: scaleY(1.5);">|</div>
+      ${atomHTML}
+      <div style="transform: scaleY(1.5);">&rang;</div>
+      <div style="margin: 0 10px;">${sign}</div>
+      <div style="transform: scaleY(1.5);">|</div>
+      ${atomHTML}
+      <div style="transform: scaleY(1.5);">&rang;</div>
+      <div style="transform: scaleY(1.5);">)</div>
+    </div>
+  `;
+}
+
 themeToggle.addEventListener('click', (e) => {
   e.preventDefault();
+  
+  // Decide the next state (we are about to toggle)
+  const nextIsDark = !isDarkState;
+  
+  // Update overlay content and colors BEFORE showing it
+  if (nextIsDark) {
+    // Going Light -> Dark
+    transitionOverlay.classList.remove('light-transition');
+    transitionOverlay.innerHTML = buildSuperposition('-') + 
+      '<p class="transition-text">Going into a symmetry protected state of the system...</p>';
+  } else {
+    // Going Dark -> Light
+    transitionOverlay.classList.add('light-transition');
+    transitionOverlay.innerHTML = buildSuperposition('+') + 
+      '<p class="transition-text">Moving out of the dark states, decoherence times are faster...</p>';
+  }
   
   // 1. Show the transition overlay
   transitionOverlay.classList.add('active');
   
   // 2. Wait for overlay to fade in completely, then swap states
   setTimeout(() => {
-    isDarkState = !isDarkState;
+    isDarkState = nextIsDark;
     
     if (isDarkState) {
       // Switch to Dark State
@@ -54,7 +96,7 @@ themeToggle.addEventListener('click', (e) => {
       }
     }
     
-    // 3. After swapping states behind the overlay, let the atom spin a bit longer
+    // 3. After swapping states behind the overlay, let the atoms spin a bit longer
     // Then fade out the overlay
     setTimeout(() => {
       transitionOverlay.classList.remove('active');
