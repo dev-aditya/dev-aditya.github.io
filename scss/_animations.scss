@@ -1,0 +1,85 @@
+/* Atom Transition Overlay */
+#theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b0f19; // Matrix dark background
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .atom {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+
+    .nucleus {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      margin-left: -10px;
+      background: #00ff41;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00ff41;
+    }
+
+    .orbit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 255, 65, 0.4);
+      border-radius: 50%;
+      animation: spin linear infinite;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        margin-left: -4px;
+        width: 8px;
+        height: 8px;
+        background: #00ff41;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00ff41;
+      }
+    }
+
+    .orbit-1 { animation-duration: 3s; transform: rotateX(60deg) rotateY(0deg); }
+    .orbit-2 { animation-duration: 4s; transform: rotateX(60deg) rotateY(60deg); }
+    .orbit-3 { animation-duration: 5s; transform: rotateX(60deg) rotateY(120deg); }
+  }
+
+  .transition-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff41;
+    font-size: 1.2rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    max-width: 80%;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
