@@ -437,17 +437,15 @@ main {
   padding: 0 0.5rem;
 
   .route-line {
-    // Animated horizontal path connecting the timeline stops.
+    // Dynamic quantum coherence wave (canvas)
     position: absolute;
     top: 1.1rem;
+    transform: translateY(-50%);
     left: 4%;
     right: 4%;
-    height: 3px;
-    background: color.adjust($secondary-color, $lightness: 24%, $space: hsl);
-    opacity: 0.8;
-    transform-origin: left;
-    transform: scaleX(0);
-    animation: unfurl-path 5s ease-in-out forwards;
+    height: 80px;
+    z-index: 0;
+    pointer-events: none;
   }
 }
 
