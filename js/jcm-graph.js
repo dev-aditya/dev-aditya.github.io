@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   (typeof isDarkState !== 'undefined' && isDarkState);
     
     // Use secondary color for the wave
-    ctx.strokeStyle = isDark ? "rgba(0, 173, 181, 0.8)" : "rgba(0, 173, 181, 0.8)";
+    ctx.strokeStyle = isDark ? "rgba(0, 255, 65, 0.8)" : "rgba(0, 173, 181, 0.8)";
     ctx.lineWidth = 2;
     ctx.lineJoin = "round";
     
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add a glowing head to the wave during the drawing phase
     if (progress < 1.0 && drawLimitX > 0) {
       ctx.fillStyle = "#fff";
-      ctx.shadowColor = "rgba(0, 173, 181, 1)";
+      ctx.shadowColor = isDark ? "rgba(0, 255, 65, 1)" : "rgba(0, 173, 181, 1)";
       ctx.shadowBlur = 10;
       ctx.beginPath();
       // Calculate y at the leading edge
