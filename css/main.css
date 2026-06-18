@@ -322,6 +322,14 @@ main#home .intro-flip-container .intro-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+main#home .intro-flip-container .quantum-equation {
+  font-family: "Consolas", "Courier New", monospace;
+  letter-spacing: 2px;
+  color: #3f6f8f;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px rgba(63, 111, 143, 0.5);
+}
 main#home .intro-flip-container .intro-back {
   transform: rotateY(180deg);
   display: flex;
@@ -331,14 +339,6 @@ main#home .intro-flip-container .intro-back {
   text-align: center;
   background: rgba(238, 241, 243, 0.95);
   border-color: #3f6f8f;
-}
-main#home .intro-flip-container .intro-back .quantum-box .quantum-equation {
-  font-family: "Consolas", "Courier New", monospace;
-  letter-spacing: 2px;
-  color: #3f6f8f;
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 0 10px rgba(63, 111, 143, 0.5);
 }
 main#home .intro-flip-container .intro-back .quantum-box .quantum-highlight {
   font-size: 1.15rem;
@@ -459,6 +459,7 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
   position: relative;
   margin: 2rem 0 3rem;
   padding: 0 0.5rem;
+  transform: translateX(-1.5rem);
 }
 .journey-route .route-line {
   position: absolute;
@@ -466,7 +467,7 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
   transform: translateY(-50%);
   left: 4%;
   right: 4%;
-  height: 80px;
+  height: 100px;
   z-index: 0;
   pointer-events: none;
 }
@@ -991,5 +992,3 @@ main#home .intro-flip-container .intro-back .quantum-box .quantum-sub span {
     transform: rotate3d(1, 1, 1, 360deg);
   }
 }
-
-/*# sourceMappingURL=main.css.map */

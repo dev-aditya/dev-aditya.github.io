@@ -259,6 +259,16 @@ main {
         // They also have .intro-text class, so they inherit padding, background, etc.
       }
 
+      .quantum-equation {
+        // Monospace equation-like display for the card.
+        font-family: 'Consolas', 'Courier New', monospace;
+        letter-spacing: 2px;
+        color: $secondary-color;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        text-shadow: 0 0 10px rgba($secondary-color, 0.5);
+      }
+
       .intro-back {
         // Darker playful "quantum observation" side of the card.
         transform: rotateY(180deg);
@@ -271,15 +281,6 @@ main {
         border-color: $secondary-color;
 
         .quantum-box {
-          .quantum-equation {
-            // Monospace equation-like display for the back face.
-            font-family: 'Consolas', 'Courier New', monospace;
-            letter-spacing: 2px;
-            color: $secondary-color;
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 0 10px rgba($secondary-color, 0.5);
-          }
 
           .quantum-highlight {
             font-size: 1.15rem;
@@ -435,6 +436,7 @@ main {
   position: relative;
   margin: 2rem 0 3rem;
   padding: 0 0.5rem;
+  transform: translateX(-1.5rem);
 
   .route-line {
     // Dynamic quantum coherence wave (canvas)
@@ -443,7 +445,7 @@ main {
     transform: translateY(-50%);
     left: 4%;
     right: 4%;
-    height: 80px;
+    height: 100px;
     z-index: 0;
     pointer-events: none;
   }
