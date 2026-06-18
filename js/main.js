@@ -89,14 +89,6 @@ const quantumJokes = [
     sub: 'Overlap may improve after peer review.'
   },
   {
-    main: '"Schrödinger\'s code: it works and doesn\'t work until you compile it."',
-    sub: 'Don\'t look at the terminal, you\'ll collapse the build.'
-  },
-  {
-    main: '"Tunneling through deadlines since 2018."',
-    sub: 'Classically forbidden, but probabilistically inevitable.'
-  },
-  {
     main: '"Currently entangled with a messy codebase."',
     sub: 'Spooky action at a distance is just bad global variables.'
   },
